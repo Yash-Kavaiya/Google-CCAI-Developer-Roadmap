@@ -56,26 +56,32 @@ Lower agent recruiting, onboarding, and infrastructure costs
 
 
 This video introduces Dialogflow, a natural language understanding platform that can create conversational user interfaces for various applications and devices. It also explains how Dialogflow fits within the CCI architecture and how it differs from traditional IVR systems.
+
 Highlights:
-[00:00:00]3 What is Dialogflow
+
+3 What is Dialogflow
 A platform to design and integrate conversational interfaces
 A build once, deploy everywhere development suite
 A product for creating virtual contact center agents
-[00:00:59]4 What is the conversational core
+
+4 What is the conversational core
 The brain of the CCI architecture
 Handles speech-to-text, natural language processing, and text-to-speech
 Not the same as the Dialogflow back end
-[00:01:53]5 How does a customer call flow through the CCI architecture
+
+5 How does a customer call flow through the CCI architecture
 Starts with a telephony system or a Google partner CTI
 Creates a session and converts speech to text
 Uses Dialogflow to interpret and structure responses
 Uses text-to-speech to generate voice
 Hands off to a human agent if needed
-[00:03:14]6 What are the other components of the CCI architecture
+
+6 What are the other components of the CCI architecture
 Agent Assist to monitor and assist human agents
 Knowledge service to access back end databases
 Insights to provide metrics and analysis
-[00:03:33]7 What Dialogflow is not
+
+7 What Dialogflow is not
 Not suitable for creating typical IVR decision trees
 Allows natural and rich interactions without menus
 Learns and tweaks algorithms as more users engage
