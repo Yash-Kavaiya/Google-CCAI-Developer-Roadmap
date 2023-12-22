@@ -1,20 +1,18 @@
 # Google's Contact Center Artificial Intelligence (CCAI)
+- A software-based customer service system that understands and interacts with callers. It is designed for technical learners who want to design customer conversations using CCAI and its integrations with Google Cloud products.
 
-### A software-based customer service system that understands and interacts with callers. It is designed for technical learners who want to design customer conversations using CCAI and its integrations with Google Cloud products.
+## The goal and benefits of CCAI
+- Lowers costs and increases customer satisfaction
+- Provides an opportunity to redesign customer experience
 
-The goal and benefits of CCAI
-Lowers costs and increases customer satisfaction
-Provides an opportunity to redesign customer experience
+## The target audience and prerequisites of this course
+- Technical learners with little to no AI experience
+- Conversational designers, developers, and operations specialists
 
-The target audience and prerequisites of this course
-Technical learners with little to no AI experience
-Conversational designers, developers, and operations specialists
-
-The content and structure of this course
-Covers the use of Dialogflow and natural-language understanding
-Identifies best practices for virtual agent design
-Shows how to collaborate with a virtual agent developer
-
+## The content and structure of this course
+ - Covers the use of Dialogflow and natural-language understanding
+- Identifies best practices for virtual agent design
+- Shows how to collaborate with a virtual agent developer
 
 A solution that uses AI to improve customer service and reduce costs. It compares CCAI with traditional interactive voice response (IVR) systems and shows how CCAI can provide natural and powerful self-service options and real-time guidance for human agents.
 
