@@ -69,12 +69,10 @@ Agent Assist, the second pillar of CCAI, which helps human agents become special
 - Supports human agents in real time
 - Provides the context necessary for a seamless transition, then stays active in the conversation behind-the-scenes.
 - Focuses on complex issues
-- 
 ### The features of Agent Assist
 - Provides account information and articles
 - Improves the model via feedback
 - Real-time assistance
-- 
 ## Insights
 
 
