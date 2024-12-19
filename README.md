@@ -82,3 +82,13 @@ For learners seeking the latest product training, this path contains courses dir
 ## Get Started
 
 Begin your learning journey by selecting a course from the catalog above. Each course is designed to build your expertise in specific aspects of Contact Center AI implementation and management.
+
+## Articles
+- Dialogflow CX Developer Interview Questions
+https://medium.com/@yash.kavaiya3/dialogflow-cx-developer-interview-questions-654bb1ff932c
+
+- Creating Dynamic Time-Based Greetings in Dialogflow CX: A Step-by-Step Guide
+https://medium.com/@yash.kavaiya3/creating-dynamic-time-based-greetings-in-dialogflow-cx-a-step-by-step-guide-9d338ae6ad19
+
+
+
