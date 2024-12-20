@@ -79,16 +79,43 @@ For learners seeking the latest product training, this path contains courses dir
 
 ---
 
-## Get Started
+# Contact Center AI Learning Hub 🎓
 
+## Get Started
 Begin your learning journey by selecting a course from the catalog above. Each course is designed to build your expertise in specific aspects of Contact Center AI implementation and management.
 
-## Articles
-- Dialogflow CX Developer Interview Questions
-https://medium.com/@yash.kavaiya3/dialogflow-cx-developer-interview-questions-654bb1ff932c
+## Articles 📚
+- [Dialogflow CX Developer Interview Questions](https://medium.com/@yash.kavaiya3/dialogflow-cx-developer-interview-questions-654bb1ff932c)
+- [Creating Dynamic Time-Based Greetings in Dialogflow CX: A Step-by-Step Guide](https://medium.com/@yash.kavaiya3/creating-dynamic-time-based-greetings-in-dialogflow-cx-a-step-by-step-guide-9d338ae6ad19)
 
-- Creating Dynamic Time-Based Greetings in Dialogflow CX: A Step-by-Step Guide
-https://medium.com/@yash.kavaiya3/creating-dynamic-time-based-greetings-in-dialogflow-cx-a-step-by-step-guide-9d338ae6ad19
+## Dialogflow SAAS Product 🚀
+[dialogflow-saas.vercel.app](https://dialogflow-saas.vercel.app)
 
+## Production-Level Projects 💼
+
+### Healthcare Project
+Advanced healthcare chatbot implementation
+
+### CarConnect Project 🚗
+[View Project Repository](https://github.com/Yash-Kavaiya/CarConnectBot)
+
+### Real Estate Virtual Assistant 🏠
+[View Project Repository](https://github.com/Yash-Kavaiya/dialogflow-cx-bot-store/blob/main/exported_agent_Real%20Estate%20Virtual%20Assistant%20Bot.blob)
+
+### Multi-language Chatbot 🌐
+[View Project Repository](https://github.com/Yash-Kavaiya/Multi-language-chatbot)
+
+### Foody Chatbot 🍕
+- [Project Repository](https://github.com/Yash-Kavaiya/dialogflow-cx-bot-store/blob/main/exported_agent_Foody.blob)
+- [Watch Demo](https://youtu.be/9hiHBEwT9A4)
+
+### Kuber Bank Chatbot 🏦
+[Watch Demo](https://youtu.be/nXhfo_op2iU)
+
+### Legal Assist Chatbot ⚖️
+[View Project Repository](https://github.com/Yash-Kavaiya/Legal-Assist-Chatbot)
+
+## Learning Resources 📖
+[Course Notes Repository](https://github.com/Yash-Kavaiya/Dialogflow-CX-YouTube-Course)
 
 
