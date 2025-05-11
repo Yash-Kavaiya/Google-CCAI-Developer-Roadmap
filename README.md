@@ -335,8 +335,8 @@ Begin your learning journey by selecting a course from the catalog above. Each c
 - [Dialogflow CX Developer Interview Questions](https://medium.com/@yash.kavaiya3/dialogflow-cx-developer-interview-questions-654bb1ff932c)
 - [Creating Dynamic Time-Based Greetings in Dialogflow CX: A Step-by-Step Guide](https://medium.com/@yash.kavaiya3/creating-dynamic-time-based-greetings-in-dialogflow-cx-a-step-by-step-guide-9d338ae6ad19)
 
-### 🚀 Dialogflow SAAS Product
-[dialogflow-saas.vercel.app](https://dialogflow-saas.vercel.app)
+### 🚀 Dialogflow Buddy Productivity Tool
+[https://dialogflow-buddy-tool.vercel.app/intents](https://dialogflow-buddy-tool.vercel.app/intents)
 
 ## 💼 Production-Level Projects
 
