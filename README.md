@@ -328,14 +328,24 @@ For learners seeking the latest product training, this path contains courses dir
 
 ## 🎓 Contact Center AI Learning Hub
 
-### Get Started
-Begin your learning journey by selecting a course from the catalog above. Each course is designed to build your expertise in specific aspects of Contact Center AI implementation and management.
+# 📚 CCAI Developer Blog Articles
 
-### 📚 Articles
-- [Dialogflow CX Developer Interview Questions](https://medium.com/@yash.kavaiya3/dialogflow-cx-developer-interview-questions-654bb1ff932c)
-- [Creating Dynamic Time-Based Greetings in Dialogflow CX: A Step-by-Step Guide](https://medium.com/@yash.kavaiya3/creating-dynamic-time-based-greetings-in-dialogflow-cx-a-step-by-step-guide-9d338ae6ad19)
+| Icon | Title | Link |
+|------|-------|------|
+| 🎯 | Dialogflow CX Developer Interview Questions | [Read on Medium](https://medium.com/@yash.kavaiya3/dialogflow-cx-developer-interview-questions-654bb1ff932c) |
+| ⏰ | Creating Dynamic Time-Based Greetings in Dialogflow CX: A Step-by-Step Guide | [Read on Medium](https://medium.com/@yash.kavaiya3/creating-dynamic-time-based-greetings-in-dialogflow-cx-a-step-by-step-guide-9d338ae6ad19) |
+| 🎙️ | Building Enterprise-Grade Voice Agents with Google's Conversational Agents Platform | [Read on Medium](https://medium.com/@yash.kavaiya3/building-enterprise-grade-voice-agents-with-googles-conversational-agents-platform-74bb02be0d91) |
+| 🤖 | Building an Intelligent Chatbot with Dialogflow API and Flask: A Deep Dive | [Read on Medium](https://medium.com/@yash.kavaiya3/building-an-intelligent-chatbot-with-dialogflow-api-and-flask-a-deep-dive-3f0e3d0cceec) |
+| 📦 | From Chat to Code: A Developer's Guide to Pushing Dialogflow CX Virtual Agents to GitHub | [Read on Medium](https://medium.com/@yash.kavaiya3/from-chat-to-code-a-developers-guide-to-pushing-dialogflow-cx-virtual-agents-to-github-ae383ba37832) |
+| ☁️ | Connecting Dialogflow CX to Cloud Run: A Developer's Guide | [Read on Medium](https://medium.com/@yash.kavaiya3/connecting-dialogflow-cx-to-cloud-run-a-developers-guide-16560c380cd7) |
+| 🛒 | Building Shia: An Advanced E-Commerce Chatbot with Dialogflow CX | [Read on Medium](https://medium.com/@yash.kavaiya3/building-shia-an-advanced-e-commerce-chatbot-with-dialogflow-cx-17f9371c3ff4) |
+| ✨ | Build Generative Agents with API Integrations: Challenge Lab | [Read on Medium](https://medium.com/@yash.kavaiya3/build-generative-agents-with-api-integrations-challenge-lab-a6348d9f0470) |
+| 🔌 | Unleashing the Power of Dialogflow CX Webhooks: A Python Developer's Guide | [Read on Medium](https://medium.com/@yash.kavaiya3/unleashing-the-power-of-dialogflow-cx-webhooks-a-python-developers-guide-c1702933608c) |
+| 🧩 | Dialogflow CX Intents in Detail: The Backbone of Conversational AI | [Read on Medium](https://medium.com/@yash.kavaiya3/dialogflow-cx-intents-in-detail-the-backbone-of-conversational-ai-0aa76d6c6cdd) |
 
 ### 🚀 Dialogflow Buddy Productivity Tool
+![image](https://github.com/user-attachments/assets/ab39e36b-2794-4364-91cf-109e73be4056)
+
 [https://dialogflow-buddy-tool.vercel.app/intents](https://dialogflow-buddy-tool.vercel.app/intents)
 
 ## 💼 Production-Level Projects
