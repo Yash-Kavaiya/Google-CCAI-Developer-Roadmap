@@ -31,12 +31,7 @@ Google's Contact Center AI Platform (CCAI Platform) is an AI-driven Contact Cent
 
 Python proficiency is fundamental for CCAI development. According to the AI+ Developer certification program, developers should master:
 
-```mermaid
-graph TD
-    A[Python Foundations] --> B[Essential Libraries]
-    A --> C[Data Preprocessing]
-    A --> D[Exploratory Data Analysis]
-```
+![image](https://github.com/user-attachments/assets/397e6c36-102a-4a52-9e3a-9d7a15d98c91)
 
 These programming skills form the foundation upon which CCAI expertise is built, enabling developers to customize and extend CCAI functionality.
 
@@ -85,13 +80,8 @@ Learning about Google's broader AI capabilities provides context for CCAI's func
 
 ## 🤖 CCAI-Specific Learning Path
 
-```mermaid
-graph LR
-    A[Conversational Design] --> B[Virtual Agent Development]
-    B --> C[Agent Assist & Insights]
-    C --> D[Advanced Integration]
-    D --> E[Specialization]
-```
+![image](https://github.com/user-attachments/assets/12ff0860-ab9c-4f9d-aa31-70a52f2ca582)
+
 
 ### 💬 Conversational Design Fundamentals
 
@@ -213,14 +203,8 @@ Staying at the forefront of CCAI development requires awareness of emerging tech
 
 ### 👨‍💼 CCAI Developer Roles
 
-```mermaid
-graph TD
-    A[CCAI Developer] --> B[Conversational AI Architect]
-    A --> C[CCAI Platform Administrator]
-    A --> D[Virtual Agent Developer]
-    A --> E[Contact Center AI Consultant]
-    A --> F[CCAI Integration Specialist]
-```
+![image](https://github.com/user-attachments/assets/b1c51675-0140-45d9-a6fd-3899c4f3efa2)
+
 
 ### 🏢 Industry Applications
 
