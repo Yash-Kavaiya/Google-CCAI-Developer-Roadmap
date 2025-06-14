@@ -1,6 +1,7 @@
 # 🚀 Comprehensive Roadmap to Become a Google CCAI Developer
 
 Contact Center AI (CCAI) is a powerful suite of Google Cloud solutions that revolutionizes customer interactions through intelligent virtual agents and AI-powered assistance. This roadmap outlines the structured path to becoming a proficient CCAI developer, from foundational knowledge to specialized expertise.
+![image](https://github.com/user-attachments/assets/2ececdb4-9aab-4d3b-977f-b8fcdf39b57e)
 
 ## 🔍 Understanding CCAI and Prerequisites
 
