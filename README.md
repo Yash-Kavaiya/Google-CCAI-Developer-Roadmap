@@ -333,6 +333,10 @@ For learners seeking the latest product training, this path contains courses dir
 
 [https://dialogflow-buddy-tool.vercel.app/intents](https://dialogflow-buddy-tool.vercel.app/intents)
 
+## Google Agentspace 
+
+[https://www.slideshare.net/slideshow/google-agentspace-enterprise-ai-search-platform/283733007](https://www.slideshare.net/slideshow/google-agentspace-enterprise-ai-search-platform/283733007)
+
 ## 💼 Production-Level Projects
 
 ### 🏥 Healthcare Project
