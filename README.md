@@ -309,7 +309,8 @@ For learners seeking the latest product training, this path contains courses dir
 | 19 | [Introduction to Agent Assist and GenAI](https://www.cloudskillsboost.google/course_templates/1159) | 2h | Advanced | In this course you will learn how Contact Center AI Agent Assist can enhance the productivity of human agents. |
 | 20 | [Agent Assist Voice and Integrations](https://www.cloudskillsboost.google/course_templates/1161) | 1h 45m | Advanced | In this course you will learn how Contact Center AI Agent Assist can enhance productivity through Voice channel. |
 
----
+## Medium Blog
+- https://medium.com/@yash.kavaiya3/mastering-webhook-partial-responses-in-dialogflow-cx-keeping-conversations-flowing-without-the-bd15c01a7849
 
 ## 🎓 Contact Center AI Learning Hub
 
