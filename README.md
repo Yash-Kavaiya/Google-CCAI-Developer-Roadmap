@@ -247,7 +247,6 @@ Becoming a Google CCAI Developer requires a progressive journey through technica
 | Manage Functions and Reporting with CCAIP | [![Google Cloud Skills Boost](https://img.shields.io/static/v1?label=&message=Google%20Cloud%20Skills%20Boost&color=4285F4&style=for-the-badge&logo=google-cloud)](https://www.cloudskillsboost.google/course_templates/958) |
 | Configure and Maintain CCAIP as an Admin | [![Google Cloud Skills Boost](https://img.shields.io/static/v1?label=&message=Google%20Cloud%20Skills%20Boost&color=4285F4&style=for-the-badge&logo=google-cloud)](https://www.cloudskillsboost.google/course_templates/1029) |
 
----
 
 ## 🚀 Public Preview
 
@@ -260,7 +259,6 @@ For learners seeking the latest product training, this path contains courses dir
 - Last Updated: about 1 month ago
 - Management: Google Cloud
 
----
 
 ## 📚 Comprehensive Course List
 
@@ -328,6 +326,11 @@ For learners seeking the latest product training, this path contains courses dir
 | ✨ | Build Generative Agents with API Integrations: Challenge Lab | [Read on Medium](https://medium.com/@yash.kavaiya3/build-generative-agents-with-api-integrations-challenge-lab-a6348d9f0470) |
 | 🔌 | Unleashing the Power of Dialogflow CX Webhooks: A Python Developer's Guide | [Read on Medium](https://medium.com/@yash.kavaiya3/unleashing-the-power-of-dialogflow-cx-webhooks-a-python-developers-guide-c1702933608c) |
 | 🧩 | Dialogflow CX Intents in Detail: The Backbone of Conversational AI | [Read on Medium](https://medium.com/@yash.kavaiya3/dialogflow-cx-intents-in-detail-the-backbone-of-conversational-ai-0aa76d6c6cdd) |
+
+### My Production Level project 
+| Name | Describation | Repo | URL |
+|---|----|---|----|
+| bria-airways | Bria Airways is a cutting-edge airline customer service platform that revolutionizes the way airlines interact with their customers. Built with artificial intelligence at its core, this platform combines modern web technologies with Google's DialogFlow CX to deliver an exceptional user experience that mimics real airline operations. |  https://github.com/Yash-Kavaiya/bria-airways | 
 
 ### 🚀 Dialogflow Buddy Productivity Tool
 ![image](https://github.com/user-attachments/assets/ab39e36b-2794-4364-91cf-109e73be4056)
