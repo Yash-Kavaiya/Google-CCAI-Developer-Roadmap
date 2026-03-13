@@ -309,7 +309,7 @@ For learners seeking the latest product training, this path contains courses dir
 
 ## Medium Blog
 - https://medium.com/@yash.kavaiya3/mastering-webhook-partial-responses-in-dialogflow-cx-keeping-conversations-flowing-without-the-bd15c01a7849
-
+- https://yashkavaiya.substack.com/p/dialogflow-cx-voice-agent-top-interview
 ## 🎓 Contact Center AI Learning Hub
 
 # 📚 CCAI Developer Blog Articles
