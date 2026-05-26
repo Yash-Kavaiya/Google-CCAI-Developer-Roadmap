@@ -1,6 +1,8 @@
 # 🚀 Comprehensive Roadmap to Become a Google CCAI Developer
 
 Contact Center AI (CCAI) is a powerful suite of Google Cloud solutions that revolutionizes customer interactions through intelligent virtual agents and AI-powered assistance. This roadmap outlines the structured path to becoming a proficient CCAI developer, from foundational knowledge to specialized expertise.
+
+> 📖 **NEW**: [Complete Resource Guide: Dialogflow CX, Conversational Agents & CX Agent Studio](./Complete-Resource-Guide.md) — comprehensive coverage of all platforms, official learning resources, codelabs, community tools, and 28 interview questions across all levels.
 ![image](https://github.com/user-attachments/assets/2ececdb4-9aab-4d3b-977f-b8fcdf39b57e)
 
 ## 🔍 Understanding CCAI and Prerequisites
