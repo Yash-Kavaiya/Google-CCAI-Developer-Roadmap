@@ -20,17 +20,6 @@
             font-family: 'Inter', system-ui, -apple-system, sans-serif;
         }
 
-        .google-sans {
-            font-family: 'Google Sans', 'Inter', system-ui, sans-serif;
-        }
-
-        .section-header {
-            font-size: 2.5rem;
-            line-height: 1.05;
-            font-weight: 700;
-            letter-spacing: -0.04em;
-        }
-
         .google-bar {
             height: 5px;
             background: linear-gradient(to right, #4285F4, #34A853, #FBBC05, #EA4335);
@@ -38,11 +27,6 @@
 
         .phase-card {
             transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-        }
-        
-        .phase-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
         }
 
         .nav-active {
@@ -104,18 +88,35 @@
         }
         
         .light .phase-card,
-        .light .resource-card,
-        .light .evolution-card {
+        .light .resource-card {
             background: #ffffff;
             border-color: #e5e7eb;
-        }
-        
-        .light .section-header {
-            color: #111827;
         }
 
         .theme-toggle {
             transition: all 0.3s ease;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out;
+        }
+        
+        .accordion-open .accordion-content {
+            max-height: 800px;
+        }
+        
+        .accordion-header {
+            transition: background-color 0.2s ease;
+        }
+        
+        .accordion-header:hover {
+            background-color: #f8fafc;
+        }
+        
+        .light .accordion-header:hover {
+            background-color: #f8fafc;
         }
     </style>
 </head>
@@ -149,7 +150,6 @@
                 </div>
                 
                 <div class="flex items-center gap-x-3">
-                    <!-- Theme Toggle -->
                     <button onclick="toggleTheme()" 
                             class="flex items-center justify-center w-9 h-9 rounded-2xl border border-gray-200 hover:bg-gray-100 transition-all theme-toggle">
                         <i class="fa-solid fa-moon text-gray-600" id="theme-icon"></i>
@@ -331,9 +331,9 @@
         </div>
     </section>
 
-    <!-- Roadmap Timeline -->
+    <!-- Enhanced Roadmap with Accordion -->
     <section id="roadmap" class="max-w-screen-2xl mx-auto px-8 py-20">
-        <div class="flex justify-between items-end mb-10">
+        <div class="flex justify-between items-end mb-8">
             <div>
                 <div class="text-[#4285F4] text-xs font-semibold tracking-[3px]">STRUCTURED LEARNING PATH</div>
                 <h2 class="section-header tracking-[-1.5px] mt-1">6-Phase Roadmap</h2>
@@ -341,80 +341,269 @@
             <div class="text-sm text-gray-500 hidden md:block">4–6 months to job-ready</div>
         </div>
         
-        <div class="relative pl-16 max-w-[980px]">
-            <div class="absolute left-[31px] top-3 bottom-3 w-[3px] timeline-line rounded"></div>
+        <div class="max-w-[1100px]">
             
             <!-- Phase 1 -->
-            <div class="phase-card mb-8 bg-white border border-gray-200 rounded-3xl p-8 relative">
-                <div class="absolute -left-[13px] top-9 w-7 h-7 bg-[#4285F4] rounded-2xl flex items-center justify-center text-xs font-bold text-white ring-4 ring-white">01</div>
-                <div class="grid md:grid-cols-12 gap-y-2 items-center">
-                    <div class="md:col-span-5">
-                        <div class="font-semibold text-2xl">Python + Cloud Foundations</div>
-                        <div class="text-xs text-[#4285F4] mt-1">2–3 weeks</div>
+            <div class="phase-card border border-gray-200 rounded-3xl mb-4 overflow-hidden accordion-item">
+                <div onclick="toggleAccordion(this)" class="accordion-header flex items-center justify-between px-8 py-6 cursor-pointer bg-white">
+                    <div class="flex items-center gap-x-4">
+                        <div class="w-9 h-9 bg-[#4285F4] text-white rounded-2xl flex items-center justify-center font-bold text-sm">01</div>
+                        <div>
+                            <div class="font-semibold text-xl">Python + Cloud Foundations</div>
+                            <div class="text-xs text-[#4285F4]">2–3 weeks</div>
+                        </div>
                     </div>
-                    <div class="md:col-span-7 text-sm text-gray-600">Python, GCP basics (IAM, Cloud Functions, Storage), conversational design principles.</div>
+                    <i class="fa-solid fa-chevron-down text-gray-400 transition-transform"></i>
+                </div>
+                <div class="accordion-content px-8 pb-8 pt-2 bg-white border-t border-gray-100">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <div class="font-semibold text-sm mb-3 text-gray-500">WHAT YOU WILL LEARN</div>
+                            <ul class="space-y-2 text-sm text-gray-600">
+                                <li>• Python programming for AI/ML</li>
+                                <li>• Google Cloud Platform basics (IAM, Projects, Billing)</li>
+                                <li>• Cloud Functions, Cloud Run, Storage</li>
+                                <li>• Conversational design principles</li>
+                                <li>• Basic NLP and API integration</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-sm mb-3 text-gray-500">GOOGLE SERVICES COVERED</div>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 text-xs bg-[#4285F4]/10 text-[#4285F4] rounded-2xl">Cloud Functions</span>
+                                <span class="px-3 py-1 text-xs bg-[#4285F4]/10 text-[#4285F4] rounded-2xl">Vertex AI</span>
+                                <span class="px-3 py-1 text-xs bg-[#4285F4]/10 text-[#4285F4] rounded-2xl">Cloud Storage</span>
+                                <span class="px-3 py-1 text-xs bg-[#4285F4]/10 text-[#4285F4] rounded-2xl">IAM</span>
+                            </div>
+                            
+                            <div class="font-semibold text-sm mb-3 text-gray-500">RECOMMENDED RESOURCES</div>
+                            <div class="space-y-2 text-sm">
+                                <div>• <a href="https://www.cloudskillsboost.google/" class="text-[#4285F4]">Google Cloud Skills Boost - Python</a></div>
+                                <div>• <a href="https://www.cloudskillsboost.google/paths/8" class="text-[#4285F4]">GCP Fundamentals</a></div>
+                                <div>• <a href="https://codelabs.developers.google.com/" class="text-[#4285F4]">Cloud Functions Codelab</a></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             
             <!-- Phase 2 -->
-            <div class="phase-card mb-8 bg-white border border-gray-200 rounded-3xl p-8 relative">
-                <div class="absolute -left-[13px] top-9 w-7 h-7 bg-[#4285F4] rounded-2xl flex items-center justify-center text-xs font-bold text-white ring-4 ring-white">02</div>
-                <div class="grid md:grid-cols-12 gap-y-2 items-center">
-                    <div class="md:col-span-5">
-                        <div class="font-semibold text-2xl">Dialogflow CX Fundamentals</div>
-                        <div class="text-xs text-[#4285F4] mt-1">4–5 weeks</div>
+            <div class="phase-card border border-gray-200 rounded-3xl mb-4 overflow-hidden accordion-item">
+                <div onclick="toggleAccordion(this)" class="accordion-header flex items-center justify-between px-8 py-6 cursor-pointer bg-white">
+                    <div class="flex items-center gap-x-4">
+                        <div class="w-9 h-9 bg-[#4285F4] text-white rounded-2xl flex items-center justify-center font-bold text-sm">02</div>
+                        <div>
+                            <div class="font-semibold text-xl">Dialogflow CX Fundamentals</div>
+                            <div class="text-xs text-[#4285F4]">4–5 weeks</div>
+                        </div>
                     </div>
-                    <div class="md:col-span-7 text-sm text-gray-600">Flows, Pages, Intents, Entities, Routes, parameters, and webhook integration.</div>
+                    <i class="fa-solid fa-chevron-down text-gray-400 transition-transform"></i>
+                </div>
+                <div class="accordion-content px-8 pb-8 pt-2 bg-white border-t border-gray-100">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <div class="font-semibold text-sm mb-3 text-gray-500">WHAT YOU WILL LEARN</div>
+                            <ul class="space-y-2 text-sm text-gray-600">
+                                <li>• Agent creation and configuration</li>
+                                <li>• Flows, Pages, Intents, Entities</li>
+                                <li>• Routes and State Handlers</li>
+                                <li>• Three types of parameters</li>
+                                <li>• Webhook integration with Cloud Functions</li>
+                                <li>• Testing and simulator usage</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-sm mb-3 text-gray-500">GOOGLE SERVICES COVERED</div>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 text-xs bg-[#4285F4]/10 text-[#4285F4] rounded-2xl">Dialogflow CX</span>
+                                <span class="px-3 py-1 text-xs bg-[#4285F4]/10 text-[#4285F4] rounded-2xl">Cloud Functions</span>
+                                <span class="px-3 py-1 text-xs bg-[#4285F4]/10 text-[#4285F4] rounded-2xl">Cloud Logging</span>
+                            </div>
+                            
+                            <div class="font-semibold text-sm mb-3 text-gray-500">RECOMMENDED RESOURCES</div>
+                            <div class="space-y-2 text-sm">
+                                <div>• <a href="https://www.cloudskillsboost.google/" class="text-[#4285F4]">Virtual Agent Development in Dialogflow CX</a></div>
+                                <div>• <a href="https://codelabs.developers.google.com/codelabs/dialogflow-cx-retail-agent" class="text-[#4285F4]">Retail Virtual Agent Codelab</a></div>
+                                <div>• <a href="https://docs.cloud.google.com/dialogflow/cx/docs" class="text-[#4285F4]">Official Dialogflow CX Docs</a></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             
             <!-- Phase 3 -->
-            <div class="phase-card mb-8 bg-white border border-gray-200 rounded-3xl p-8 relative">
-                <div class="absolute -left-[13px] top-9 w-7 h-7 bg-[#FBBC05] rounded-2xl flex items-center justify-center text-xs font-bold text-white ring-4 ring-white">03</div>
-                <div class="grid md:grid-cols-12 gap-y-2 items-center">
-                    <div class="md:col-span-5">
-                        <div class="font-semibold text-2xl">Generative Playbooks</div>
-                        <div class="text-xs text-[#FBBC05] mt-1">3 weeks</div>
+            <div class="phase-card border border-gray-200 rounded-3xl mb-4 overflow-hidden accordion-item">
+                <div onclick="toggleAccordion(this)" class="accordion-header flex items-center justify-between px-8 py-6 cursor-pointer bg-white">
+                    <div class="flex items-center gap-x-4">
+                        <div class="w-9 h-9 bg-[#FBBC05] text-white rounded-2xl flex items-center justify-center font-bold text-sm">03</div>
+                        <div>
+                            <div class="font-semibold text-xl">Generative Playbooks</div>
+                            <div class="text-xs text-[#FBBC05]">3 weeks</div>
+                        </div>
                     </div>
-                    <div class="md:col-span-7 text-sm text-gray-600">Instruction-based agents, RAG, Data Stores, and hybrid agent patterns.</div>
+                    <i class="fa-solid fa-chevron-down text-gray-400 transition-transform"></i>
+                </div>
+                <div class="accordion-content px-8 pb-8 pt-2 bg-white border-t border-gray-100">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <div class="font-semibold text-sm mb-3 text-gray-500">WHAT YOU WILL LEARN</div>
+                            <ul class="space-y-2 text-sm text-gray-600">
+                                <li>• Instruction-based agent creation</li>
+                                <li>• Generative Playbooks vs traditional flows</li>
+                                <li>• RAG with Data Stores</li>
+                                <li>• Hybrid agent architecture</li>
+                                <li>• Generators and dynamic responses</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-sm mb-3 text-gray-500">GOOGLE SERVICES COVERED</div>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 text-xs bg-[#FBBC05]/10 text-[#FBBC05] rounded-2xl">Vertex AI Agent Builder</span>
+                                <span class="px-3 py-1 text-xs bg-[#FBBC05]/10 text-[#FBBC05] rounded-2xl">Data Stores</span>
+                                <span class="px-3 py-1 text-xs bg-[#FBBC05]/10 text-[#FBBC05] rounded-2xl">Gemini</span>
+                                <span class="px-3 py-1 text-xs bg-[#FBBC05]/10 text-[#FBBC05] rounded-2xl">Dialogflow CX</span>
+                            </div>
+                            
+                            <div class="font-semibold text-sm mb-3 text-gray-500">RECOMMENDED RESOURCES</div>
+                            <div class="space-y-2 text-sm">
+                                <div>• <a href="https://www.cloudskillsboost.google/" class="text-[#4285F4]">Generative Playbooks Course</a></div>
+                                <div>• <a href="https://docs.cloud.google.com/dialogflow/cx/docs/concept/playbook" class="text-[#4285F4]">Playbooks Documentation</a></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             
             <!-- Phase 4 -->
-            <div class="phase-card mb-8 bg-white border border-[#34A853]/30 rounded-3xl p-8 relative">
-                <div class="absolute -left-[13px] top-9 w-7 h-7 bg-[#34A853] rounded-2xl flex items-center justify-center text-xs font-bold text-white ring-4 ring-white">04</div>
-                <div class="grid md:grid-cols-12 gap-y-2 items-center">
-                    <div class="md:col-span-5">
-                        <div class="font-semibold text-2xl">CX Agent Studio + ADK</div>
-                        <div class="text-xs text-[#34A853] mt-1">3–4 weeks</div>
+            <div class="phase-card border border-gray-200 rounded-3xl mb-4 overflow-hidden accordion-item">
+                <div onclick="toggleAccordion(this)" class="accordion-header flex items-center justify-between px-8 py-6 cursor-pointer bg-white">
+                    <div class="flex items-center gap-x-4">
+                        <div class="w-9 h-9 bg-[#34A853] text-white rounded-2xl flex items-center justify-center font-bold text-sm">04</div>
+                        <div>
+                            <div class="font-semibold text-xl">CX Agent Studio + ADK</div>
+                            <div class="text-xs text-[#34A853]">3–4 weeks</div>
+                        </div>
                     </div>
-                    <div class="md:col-span-7 text-sm text-gray-600">Multi-agent systems, Python tools, evaluations, callbacks, and telephony.</div>
+                    <i class="fa-solid fa-chevron-down text-gray-400 transition-transform"></i>
+                </div>
+                <div class="accordion-content px-8 pb-8 pt-2 bg-white border-t border-gray-100">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <div class="font-semibold text-sm mb-3 text-gray-500">WHAT YOU WILL LEARN</div>
+                            <ul class="space-y-2 text-sm text-gray-600">
+                                <li>• Multi-agent system design</li>
+                                <li>• Root agent + sub-agents</li>
+                                <li>• Python tools and callbacks</li>
+                                <li>• Evaluations and tracing</li>
+                                <li>• Telephony and CCaaS integration</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-sm mb-3 text-gray-500">GOOGLE SERVICES COVERED</div>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 text-xs bg-[#34A853]/10 text-[#34A853] rounded-2xl">CX Agent Studio</span>
+                                <span class="px-3 py-1 text-xs bg-[#34A853]/10 text-[#34A853] rounded-2xl">Agent Development Kit (ADK)</span>
+                                <span class="px-3 py-1 text-xs bg-[#34A853]/10 text-[#34A853] rounded-2xl">Gemini 2.0</span>
+                                <span class="px-3 py-1 text-xs bg-[#34A853]/10 text-[#34A853] rounded-2xl">Vertex AI</span>
+                            </div>
+                            
+                            <div class="font-semibold text-sm mb-3 text-gray-500">RECOMMENDED RESOURCES</div>
+                            <div class="space-y-2 text-sm">
+                                <div>• <a href="https://ces.cloud.google.com/" class="text-[#4285F4]">CX Agent Studio Console</a></div>
+                                <div>• <a href="https://docs.cloud.google.com/customer-engagement-ai/conversational-agents/ps" class="text-[#4285F4]">CX Agent Studio Docs</a></div>
+                                <div>• <a href="https://kode.wiki/4rcugs0" class="text-[#4285F4]">ADK Tutorial</a></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             
             <!-- Phase 5 -->
-            <div class="phase-card mb-8 bg-white border border-gray-200 rounded-3xl p-8 relative">
-                <div class="absolute -left-[13px] top-9 w-7 h-7 bg-[#34A853] rounded-2xl flex items-center justify-center text-xs font-bold text-white ring-4 ring-white">05</div>
-                <div class="grid md:grid-cols-12 gap-y-2 items-center">
-                    <div class="md:col-span-5">
-                        <div class="font-semibold text-2xl">CCAI Platform &amp; Integrations</div>
-                        <div class="text-xs text-[#34A853] mt-1">2 weeks</div>
+            <div class="phase-card border border-gray-200 rounded-3xl mb-4 overflow-hidden accordion-item">
+                <div onclick="toggleAccordion(this)" class="accordion-header flex items-center justify-between px-8 py-6 cursor-pointer bg-white">
+                    <div class="flex items-center gap-x-4">
+                        <div class="w-9 h-9 bg-[#34A853] text-white rounded-2xl flex items-center justify-center font-bold text-sm">05</div>
+                        <div>
+                            <div class="font-semibold text-xl">CCAI Platform &amp; Integrations</div>
+                            <div class="text-xs text-[#34A853]">2 weeks</div>
+                        </div>
                     </div>
-                    <div class="md:col-span-7 text-sm text-gray-600">Agent Assist, Insights, Speech-to-Text, Phone Gateway, and handoff strategies.</div>
+                    <i class="fa-solid fa-chevron-down text-gray-400 transition-transform"></i>
+                </div>
+                <div class="accordion-content px-8 pb-8 pt-2 bg-white border-t border-gray-100">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <div class="font-semibold text-sm mb-3 text-gray-500">WHAT YOU WILL LEARN</div>
+                            <ul class="space-y-2 text-sm text-gray-600">
+                                <li>• Agent Assist configuration</li>
+                                <li>• CCAI Insights and analytics</li>
+                                <li>• Speech-to-Text &amp; Text-to-Speech</li>
+                                <li>• Conversational Phone Gateway</li>
+                                <li>• Live agent handoff strategies</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-sm mb-3 text-gray-500">GOOGLE SERVICES COVERED</div>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 text-xs bg-[#34A853]/10 text-[#34A853] rounded-2xl">CCAI Platform</span>
+                                <span class="px-3 py-1 text-xs bg-[#34A853]/10 text-[#34A853] rounded-2xl">Agent Assist</span>
+                                <span class="px-3 py-1 text-xs bg-[#34A853]/10 text-[#34A853] rounded-2xl">Speech-to-Text</span>
+                                <span class="px-3 py-1 text-xs bg-[#34A853]/10 text-[#34A853] rounded-2xl">Text-to-Speech</span>
+                            </div>
+                            
+                            <div class="font-semibold text-sm mb-3 text-gray-500">RECOMMENDED RESOURCES</div>
+                            <div class="space-y-2 text-sm">
+                                <div>• <a href="https://www.cloudskillsboost.google/" class="text-[#4285F4]">CCAI Insights Course</a></div>
+                                <div>• <a href="https://docs.cloud.google.com/contact-center-ai/docs" class="text-[#4285F4]">CCAI Platform Documentation</a></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             
             <!-- Phase 6 -->
-            <div class="phase-card bg-white border border-gray-200 rounded-3xl p-8 relative">
-                <div class="absolute -left-[13px] top-9 w-7 h-7 bg-[#34A853] rounded-2xl flex items-center justify-center text-xs font-bold text-white ring-4 ring-white">06</div>
-                <div class="grid md:grid-cols-12 gap-y-2 items-center">
-                    <div class="md:col-span-5">
-                        <div class="font-semibold text-2xl">Production &amp; Certification</div>
-                        <div class="text-xs text-[#34A853] mt-1">Ongoing</div>
+            <div class="phase-card border border-gray-200 rounded-3xl mb-4 overflow-hidden accordion-item">
+                <div onclick="toggleAccordion(this)" class="accordion-header flex items-center justify-between px-8 py-6 cursor-pointer bg-white">
+                    <div class="flex items-center gap-x-4">
+                        <div class="w-9 h-9 bg-[#34A853] text-white rounded-2xl flex items-center justify-center font-bold text-sm">06</div>
+                        <div>
+                            <div class="font-semibold text-xl">Production &amp; Certification</div>
+                            <div class="text-xs text-[#34A853]">Ongoing</div>
+                        </div>
                     </div>
-                    <div class="md:col-span-7 text-sm text-gray-600">End-to-end projects, CI/CD, testing frameworks, and Google Cloud certifications.</div>
+                    <i class="fa-solid fa-chevron-down text-gray-400 transition-transform"></i>
+                </div>
+                <div class="accordion-content px-8 pb-8 pt-2 bg-white border-t border-gray-100">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <div class="font-semibold text-sm mb-3 text-gray-500">WHAT YOU WILL LEARN</div>
+                            <ul class="space-y-2 text-sm text-gray-600">
+                                <li>• End-to-end project development</li>
+                                <li>• CI/CD for conversational agents</li>
+                                <li>• Testing frameworks and evaluations</li>
+                                <li>• Google Cloud Professional certifications</li>
+                                <li>• Production monitoring and logging</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <div class="font-semibold text-sm mb-3 text-gray-500">GOOGLE SERVICES COVERED</div>
+                            <div class="flex flex-wrap gap-2 mb-4">
+                                <span class="px-3 py-1 text-xs bg-[#34A853]/10 text-[#34A853] rounded-2xl">Cloud Build</span>
+                                <span class="px-3 py-1 text-xs bg-[#34A853]/10 text-[#34A853] rounded-2xl">Cloud Monitoring</span>
+                                <span class="px-3 py-1 text-xs bg-[#34A853]/10 text-[#34A853] rounded-2xl">Cloud Logging</span>
+                                <span class="px-3 py-1 text-xs bg-[#34A853]/10 text-[#34A853] rounded-2xl">Vertex AI</span>
+                            </div>
+                            
+                            <div class="font-semibold text-sm mb-3 text-gray-500">RECOMMENDED RESOURCES</div>
+                            <div class="space-y-2 text-sm">
+                                <div>• <a href="https://www.cloudskillsboost.google/" class="text-[#4285F4]">Professional Cloud Developer</a></div>
+                                <div>• <a href="https://cloud.google.com/certification" class="text-[#4285F4]">Google Cloud Certifications</a></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+            
         </div>
     </section>
 
@@ -542,6 +731,31 @@
     </footer>
 
     <script>
+        function toggleAccordion(element) {
+            const item = element.parentElement;
+            const content = item.querySelector('.accordion-content');
+            const icon = element.querySelector('i');
+            
+            if (item.classList.contains('accordion-open')) {
+                item.classList.remove('accordion-open');
+                content.style.maxHeight = '0';
+                icon.style.transform = 'rotate(0deg)';
+            } else {
+                // Close all other accordions
+                document.querySelectorAll('.accordion-item').forEach(el => {
+                    el.classList.remove('accordion-open');
+                    const c = el.querySelector('.accordion-content');
+                    if (c) c.style.maxHeight = '0';
+                    const i = el.querySelector('i');
+                    if (i) i.style.transform = 'rotate(0deg)';
+                });
+                
+                item.classList.add('accordion-open');
+                content.style.maxHeight = content.scrollHeight + 'px';
+                icon.style.transform = 'rotate(180deg)';
+            }
+        }
+        
         function toggleTheme() {
             const body = document.body;
             const icon = document.getElementById('theme-icon');
@@ -558,7 +772,6 @@
         }
         
         function init() {
-            // Set initial icon
             const icon = document.getElementById('theme-icon');
             icon.classList.add('fa-moon');
             
