@@ -25,76 +25,28 @@
             background: linear-gradient(to right, #4285F4, #34A853, #FBBC05, #EA4335);
         }
 
-        .phase-card {
-            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
-        }
-
         .nav-active {
             color: #4285F4;
             font-weight: 600;
             border-bottom: 3px solid #4285F4;
         }
 
-        .resource-card {
-            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        .tab-button {
+            transition: all 0.2s ease;
         }
         
-        .resource-card:hover {
-            transform: translateY(-4px);
+        .tab-button.active {
+            color: #4285F4;
+            border-bottom: 3px solid #4285F4;
+            font-weight: 600;
         }
 
-        .g-blue { color: #4285F4; }
-        .g-green { color: #34A853; }
-        .g-yellow { color: #FBBC05; }
-        .g-red { color: #EA4335; }
-
-        .timeline-line {
-            background: linear-gradient(to bottom, #4285F4, #34A853, #FBBC05);
-        }
-
-        .light body {
-            background: #ffffff;
-            color: #111827;
+        .section {
+            display: none;
         }
         
-        .light .bg-slate-950,
-        .light .bg-[#0B0F17],
-        .light .bg-[#11151F] {
-            background: #ffffff !important;
-        }
-        
-        .light .border-slate-700,
-        .light .border-slate-800 {
-            border-color: #e5e7eb !important;
-        }
-        
-        .light .text-slate-200,
-        .light .text-slate-300,
-        .light .text-slate-400 {
-            color: #374151 !important;
-        }
-        
-        .light .text-slate-500 {
-            color: #6b7280 !important;
-        }
-        
-        .light .bg-white\/5 {
-            background: #f3f4f6 !important;
-        }
-        
-        .light nav {
-            background: #ffffff !important;
-            border-color: #e5e7eb !important;
-        }
-        
-        .light .phase-card,
-        .light .resource-card {
-            background: #ffffff;
-            border-color: #e5e7eb;
-        }
-
-        .theme-toggle {
-            transition: all 0.3s ease;
+        .section.active {
+            display: block;
         }
 
         .accordion-content {
@@ -104,19 +56,11 @@
         }
         
         .accordion-open .accordion-content {
-            max-height: 800px;
+            max-height: 900px;
         }
-        
-        .accordion-header {
-            transition: background-color 0.2s ease;
-        }
-        
-        .accordion-header:hover {
-            background-color: #f8fafc;
-        }
-        
-        .light .accordion-header:hover {
-            background-color: #f8fafc;
+
+        .google-btn {
+            background: linear-gradient(90deg, #4285F4, #34A853);
         }
     </style>
 </head>
@@ -141,17 +85,17 @@
                     </div>
                 </div>
                 
-                <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
-                    <a href="#overview" class="hover:text-gray-900 transition-colors px-1">Overview</a>
-                    <a href="#evolution" class="hover:text-gray-900 transition-colors px-1">Evolution</a>
-                    <a href="#roadmap" class="hover:text-gray-900 transition-colors px-1">Roadmap</a>
-                    <a href="#resources" class="hover:text-gray-900 transition-colors px-1">Resources</a>
-                    <a href="#interview" class="hover:text-gray-900 transition-colors px-1">Interview Prep</a>
+                <!-- Main Tabs -->
+                <div class="flex items-center gap-x-1 text-sm font-medium">
+                    <button onclick="showSection('roadmap')" class="tab-button px-5 py-2 text-gray-600 hover:text-gray-900 active-tab" id="tab-roadmap">Roadmap</button>
+                    <button onclick="showSection('videos')" class="tab-button px-5 py-2 text-gray-600 hover:text-gray-900" id="tab-videos">Videos</button>
+                    <button onclick="showSection('resources')" class="tab-button px-5 py-2 text-gray-600 hover:text-gray-900" id="tab-resources">Resources</button>
+                    <button onclick="showSection('interview')" class="tab-button px-5 py-2 text-gray-600 hover:text-gray-900" id="tab-interview">Interview Prep</button>
                 </div>
                 
                 <div class="flex items-center gap-x-3">
                     <button onclick="toggleTheme()" 
-                            class="flex items-center justify-center w-9 h-9 rounded-2xl border border-gray-200 hover:bg-gray-100 transition-all theme-toggle">
+                            class="flex items-center justify-center w-9 h-9 rounded-2xl border border-gray-200 hover:bg-gray-100 transition-all">
                         <i class="fa-solid fa-moon text-gray-600" id="theme-icon"></i>
                     </button>
                     
@@ -170,7 +114,7 @@
         </div>
     </nav>
 
-    <!-- Hero -->
+    <!-- HERO -->
     <header class="pt-16 pb-20 border-b border-gray-200">
         <div class="max-w-screen-2xl mx-auto px-8">
             <div class="max-w-4xl">
@@ -192,11 +136,11 @@
                 </p>
                 
                 <div class="flex items-center gap-x-4">
-                    <a href="#roadmap" 
+                    <button onclick="showSection('roadmap')" 
                        class="inline-flex items-center justify-center gap-x-3 px-8 py-[17px] rounded-3xl bg-[#4285F4] text-white font-semibold text-[15px] hover:bg-[#3367D6] active:scale-[0.985] transition-all">
                         Start the Roadmap
                         <i class="fa-solid fa-arrow-right"></i>
-                    </a>
+                    </button>
                     
                     <a href="https://github.com/Yash-Kavaiya/Google-CCAI-Developer-Roadmap/raw/main/Google%20CCAI%20Roadmap.pdf" target="_blank"
                        class="inline-flex items-center justify-center gap-x-3 px-7 py-[17px] rounded-3xl border border-gray-200 hover:bg-gray-50 text-[15px] font-medium transition-all">
@@ -213,126 +157,8 @@
         </div>
     </header>
 
-    <!-- Quick Metrics -->
-    <div class="max-w-screen-2xl mx-auto px-8 -mt-5 relative z-10">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="bg-white border border-gray-200 rounded-3xl p-6">
-                <div class="text-5xl font-semibold tracking-tighter text-gray-900">32</div>
-                <div class="text-xs text-gray-500 mt-1 tracking-widest">LEARNING MODULES</div>
-            </div>
-            <div class="bg-white border border-gray-200 rounded-3xl p-6">
-                <div class="text-5xl font-semibold tracking-tighter text-gray-900">28</div>
-                <div class="text-xs text-gray-500 mt-1 tracking-widest">INTERVIEW QUESTIONS</div>
-            </div>
-            <div class="bg-white border border-gray-200 rounded-3xl p-6">
-                <div class="text-5xl font-semibold tracking-tighter text-gray-900">15</div>
-                <div class="text-xs text-gray-500 mt-1 tracking-widest">OFFICIAL COURSES</div>
-            </div>
-            <div class="bg-white border border-gray-200 rounded-3xl p-6">
-                <div class="text-5xl font-semibold tracking-tighter text-gray-900">3</div>
-                <div class="text-xs text-gray-500 mt-1 tracking-widest">PLATFORM GENERATIONS</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Overview -->
-    <section id="overview" class="max-w-screen-2xl mx-auto px-8 pt-20 pb-16">
-        <div class="grid md:grid-cols-12 gap-x-16 gap-y-10 items-center">
-            <div class="md:col-span-7">
-                <div class="uppercase tracking-[3px] text-xs font-semibold text-[#4285F4] mb-3">WHAT IS GOOGLE CCAI?</div>
-                <h2 class="section-header tracking-[-1.5px] text-gray-900">Contact Center AI<br>Platform</h2>
-                <p class="mt-5 text-lg text-gray-600 max-w-[42ch]">
-                    Google's full-stack Contact Center as a Service (CCaaS) solution. 
-                    Combines intelligent virtual agents, real-time Agent Assist, and deep conversational analytics.
-                </p>
-            </div>
-            
-            <div class="md:col-span-5">
-                <div class="bg-white border border-gray-200 rounded-3xl p-8">
-                    <div class="text-xs tracking-widest text-gray-500 mb-5">CORE COMPONENTS</div>
-                    <div class="space-y-[17px]">
-                        <div class="flex items-center gap-x-4"><span class="w-2.5 h-2.5 rounded-full bg-[#4285F4]"></span> <span class="font-medium">Dialogflow CX / Conversational Agents</span></div>
-                        <div class="flex items-center gap-x-4"><span class="w-2.5 h-2.5 rounded-full bg-[#34A853]"></span> <span class="font-medium">Agent Assist + GenAI</span></div>
-                        <div class="flex items-center gap-x-4"><span class="w-2.5 h-2.5 rounded-full bg-[#FBBC05]"></span> <span class="font-medium">Conversational Insights</span></div>
-                        <div class="flex items-center gap-x-4"><span class="w-2.5 h-2.5 rounded-full bg-[#EA4335]"></span> <span class="font-medium">CCAI Platform (CCaaS)</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Evolution Section -->
-    <section id="evolution" class="bg-gray-50 border-y border-gray-200 py-16">
-        <div class="max-w-screen-2xl mx-auto px-8">
-            <div class="text-center mb-12">
-                <div class="inline-block px-5 py-1.5 text-xs font-semibold tracking-[2px] bg-white border border-gray-200 rounded-2xl mb-4">PLATFORM EVOLUTION</div>
-                <h2 class="section-header tracking-[-1.5px]">Dialogflow CX → Playbooks → CX Agent Studio</h2>
-                <p class="text-gray-600 mt-3 max-w-md mx-auto">The three generations every CCAI developer must master</p>
-            </div>
-            
-            <div class="grid md:grid-cols-3 gap-6 max-w-[1100px] mx-auto">
-                
-                <!-- Gen 1 -->
-                <div class="bg-white border border-gray-200 rounded-3xl p-8">
-                    <div class="flex justify-between items-start mb-8">
-                        <div>
-                            <div class="text-[#4285F4] text-xs font-semibold tracking-widest">GENERATION 1 • 2020</div>
-                            <div class="text-3xl font-semibold mt-1">Dialogflow CX</div>
-                        </div>
-                        <div class="px-4 py-1 text-xs font-mono rounded-2xl bg-[#4285F4]/10 text-[#4285F4]">State Machine</div>
-                    </div>
-                    
-                    <div class="space-y-3 text-sm">
-                        <div class="flex items-center gap-3"><i class="fa-solid fa-check text-[#34A853]"></i> <span>Flows + Pages + Routes</span></div>
-                        <div class="flex items-center gap-3"><i class="fa-solid fa-check text-[#34A853]"></i> <span>Deterministic control</span></div>
-                        <div class="flex items-center gap-3"><i class="fa-solid fa-check text-[#34A853]"></i> <span>Webhooks &amp; Parameters</span></div>
-                    </div>
-                    <div class="mt-8 pt-6 border-t border-gray-100 text-xs text-gray-500">Best for regulated, high-precision workflows</div>
-                </div>
-                
-                <!-- Gen 2 -->
-                <div class="bg-white border border-gray-200 rounded-3xl p-8">
-                    <div class="flex justify-between items-start mb-8">
-                        <div>
-                            <div class="text-[#FBBC05] text-xs font-semibold tracking-widest">GENERATION 2 • 2024</div>
-                            <div class="text-3xl font-semibold mt-1">Generative Playbooks</div>
-                        </div>
-                        <div class="px-4 py-1 text-xs font-mono rounded-2xl bg-[#FBBC05]/10 text-[#FBBC05]">LLM-Powered</div>
-                    </div>
-                    
-                    <div class="space-y-3 text-sm">
-                        <div class="flex items-center gap-3"><i class="fa-solid fa-check text-[#34A853]"></i> <span>Natural language instructions</span></div>
-                        <div class="flex items-center gap-3"><i class="fa-solid fa-check text-[#34A853]"></i> <span>RAG + Data Stores</span></div>
-                        <div class="flex items-center gap-3"><i class="fa-solid fa-check text-[#34A853]"></i> <span>Hybrid agents supported</span></div>
-                    </div>
-                    <div class="mt-8 pt-6 border-t border-gray-100 text-xs text-gray-500">Ideal for flexible FAQ and open conversations</div>
-                </div>
-                
-                <!-- Gen 3 -->
-                <div class="bg-white border border-[#34A853]/30 rounded-3xl p-8 relative">
-                    <div class="absolute top-6 right-6 px-4 py-1 text-xs font-bold bg-[#34A853] text-white rounded-2xl">LATEST</div>
-                    
-                    <div class="flex justify-between items-start mb-8">
-                        <div>
-                            <div class="text-[#34A853] text-xs font-semibold tracking-widest">GENERATION 3 • 2025</div>
-                            <div class="text-3xl font-semibold mt-1">CX Agent Studio</div>
-                        </div>
-                        <div class="px-4 py-1 text-xs font-mono rounded-2xl bg-[#34A853]/10 text-[#34A853]">ADK + Gemini</div>
-                    </div>
-                    
-                    <div class="space-y-3 text-sm">
-                        <div class="flex items-center gap-3"><i class="fa-solid fa-check text-[#34A853]"></i> <span>Multi-agent architecture</span></div>
-                        <div class="flex items-center gap-3"><i class="fa-solid fa-check text-[#34A853]"></i> <span>Python tools in UI</span></div>
-                        <div class="flex items-center gap-3"><i class="fa-solid fa-check text-[#34A853]"></i> <span>Evaluations &amp; tracing</span></div>
-                    </div>
-                    <div class="mt-8 pt-6 border-t border-[#34A853]/20 text-xs text-emerald-600 font-medium">ces.cloud.google.com • Powered by Agent Development Kit</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Enhanced Roadmap with Accordion -->
-    <section id="roadmap" class="max-w-screen-2xl mx-auto px-8 py-20">
+    <!-- ==================== ROADMAP SECTION ==================== -->
+    <section id="roadmap" class="section active max-w-screen-2xl mx-auto px-8 py-16">
         <div class="flex justify-between items-end mb-8">
             <div>
                 <div class="text-[#4285F4] text-xs font-semibold tracking-[3px]">STRUCTURED LEARNING PATH</div>
@@ -345,7 +171,7 @@
             
             <!-- Phase 1 -->
             <div class="phase-card border border-gray-200 rounded-3xl mb-4 overflow-hidden accordion-item">
-                <div onclick="toggleAccordion(this)" class="accordion-header flex items-center justify-between px-8 py-6 cursor-pointer bg-white">
+                <div onclick="toggleAccordion(this)" class="flex items-center justify-between px-8 py-6 cursor-pointer bg-white">
                     <div class="flex items-center gap-x-4">
                         <div class="w-9 h-9 bg-[#4285F4] text-white rounded-2xl flex items-center justify-center font-bold text-sm">01</div>
                         <div>
@@ -380,16 +206,15 @@
                             <div class="space-y-2 text-sm">
                                 <div>• <a href="https://www.cloudskillsboost.google/" class="text-[#4285F4]">Google Cloud Skills Boost - Python</a></div>
                                 <div>• <a href="https://www.cloudskillsboost.google/paths/8" class="text-[#4285F4]">GCP Fundamentals</a></div>
-                                <div>• <a href="https://codelabs.developers.google.com/" class="text-[#4285F4]">Cloud Functions Codelab</a></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Phase 2 -->
             <div class="phase-card border border-gray-200 rounded-3xl mb-4 overflow-hidden accordion-item">
-                <div onclick="toggleAccordion(this)" class="accordion-header flex items-center justify-between px-8 py-6 cursor-pointer bg-white">
+                <div onclick="toggleAccordion(this)" class="flex items-center justify-between px-8 py-6 cursor-pointer bg-white">
                     <div class="flex items-center gap-x-4">
                         <div class="w-9 h-9 bg-[#4285F4] text-white rounded-2xl flex items-center justify-center font-bold text-sm">02</div>
                         <div>
@@ -409,7 +234,6 @@
                                 <li>• Routes and State Handlers</li>
                                 <li>• Three types of parameters</li>
                                 <li>• Webhook integration with Cloud Functions</li>
-                                <li>• Testing and simulator usage</li>
                             </ul>
                         </div>
                         <div>
@@ -417,23 +241,21 @@
                             <div class="flex flex-wrap gap-2 mb-4">
                                 <span class="px-3 py-1 text-xs bg-[#4285F4]/10 text-[#4285F4] rounded-2xl">Dialogflow CX</span>
                                 <span class="px-3 py-1 text-xs bg-[#4285F4]/10 text-[#4285F4] rounded-2xl">Cloud Functions</span>
-                                <span class="px-3 py-1 text-xs bg-[#4285F4]/10 text-[#4285F4] rounded-2xl">Cloud Logging</span>
                             </div>
                             
                             <div class="font-semibold text-sm mb-3 text-gray-500">RECOMMENDED RESOURCES</div>
                             <div class="space-y-2 text-sm">
                                 <div>• <a href="https://www.cloudskillsboost.google/" class="text-[#4285F4]">Virtual Agent Development in Dialogflow CX</a></div>
                                 <div>• <a href="https://codelabs.developers.google.com/codelabs/dialogflow-cx-retail-agent" class="text-[#4285F4]">Retail Virtual Agent Codelab</a></div>
-                                <div>• <a href="https://docs.cloud.google.com/dialogflow/cx/docs" class="text-[#4285F4]">Official Dialogflow CX Docs</a></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Phase 3 -->
             <div class="phase-card border border-gray-200 rounded-3xl mb-4 overflow-hidden accordion-item">
-                <div onclick="toggleAccordion(this)" class="accordion-header flex items-center justify-between px-8 py-6 cursor-pointer bg-white">
+                <div onclick="toggleAccordion(this)" class="flex items-center justify-between px-8 py-6 cursor-pointer bg-white">
                     <div class="flex items-center gap-x-4">
                         <div class="w-9 h-9 bg-[#FBBC05] text-white rounded-2xl flex items-center justify-center font-bold text-sm">03</div>
                         <div>
@@ -452,7 +274,6 @@
                                 <li>• Generative Playbooks vs traditional flows</li>
                                 <li>• RAG with Data Stores</li>
                                 <li>• Hybrid agent architecture</li>
-                                <li>• Generators and dynamic responses</li>
                             </ul>
                         </div>
                         <div>
@@ -461,7 +282,6 @@
                                 <span class="px-3 py-1 text-xs bg-[#FBBC05]/10 text-[#FBBC05] rounded-2xl">Vertex AI Agent Builder</span>
                                 <span class="px-3 py-1 text-xs bg-[#FBBC05]/10 text-[#FBBC05] rounded-2xl">Data Stores</span>
                                 <span class="px-3 py-1 text-xs bg-[#FBBC05]/10 text-[#FBBC05] rounded-2xl">Gemini</span>
-                                <span class="px-3 py-1 text-xs bg-[#FBBC05]/10 text-[#FBBC05] rounded-2xl">Dialogflow CX</span>
                             </div>
                             
                             <div class="font-semibold text-sm mb-3 text-gray-500">RECOMMENDED RESOURCES</div>
@@ -473,10 +293,10 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Phase 4 -->
             <div class="phase-card border border-gray-200 rounded-3xl mb-4 overflow-hidden accordion-item">
-                <div onclick="toggleAccordion(this)" class="accordion-header flex items-center justify-between px-8 py-6 cursor-pointer bg-white">
+                <div onclick="toggleAccordion(this)" class="flex items-center justify-between px-8 py-6 cursor-pointer bg-white">
                     <div class="flex items-center gap-x-4">
                         <div class="w-9 h-9 bg-[#34A853] text-white rounded-2xl flex items-center justify-center font-bold text-sm">04</div>
                         <div>
@@ -495,7 +315,6 @@
                                 <li>• Root agent + sub-agents</li>
                                 <li>• Python tools and callbacks</li>
                                 <li>• Evaluations and tracing</li>
-                                <li>• Telephony and CCaaS integration</li>
                             </ul>
                         </div>
                         <div>
@@ -504,23 +323,21 @@
                                 <span class="px-3 py-1 text-xs bg-[#34A853]/10 text-[#34A853] rounded-2xl">CX Agent Studio</span>
                                 <span class="px-3 py-1 text-xs bg-[#34A853]/10 text-[#34A853] rounded-2xl">Agent Development Kit (ADK)</span>
                                 <span class="px-3 py-1 text-xs bg-[#34A853]/10 text-[#34A853] rounded-2xl">Gemini 2.0</span>
-                                <span class="px-3 py-1 text-xs bg-[#34A853]/10 text-[#34A853] rounded-2xl">Vertex AI</span>
                             </div>
                             
                             <div class="font-semibold text-sm mb-3 text-gray-500">RECOMMENDED RESOURCES</div>
                             <div class="space-y-2 text-sm">
                                 <div>• <a href="https://ces.cloud.google.com/" class="text-[#4285F4]">CX Agent Studio Console</a></div>
                                 <div>• <a href="https://docs.cloud.google.com/customer-engagement-ai/conversational-agents/ps" class="text-[#4285F4]">CX Agent Studio Docs</a></div>
-                                <div>• <a href="https://kode.wiki/4rcugs0" class="text-[#4285F4]">ADK Tutorial</a></div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
             <!-- Phase 5 -->
             <div class="phase-card border border-gray-200 rounded-3xl mb-4 overflow-hidden accordion-item">
-                <div onclick="toggleAccordion(this)" class="accordion-header flex items-center justify-between px-8 py-6 cursor-pointer bg-white">
+                <div onclick="toggleAccordion(this)" class="flex items-center justify-between px-8 py-6 cursor-pointer bg-white">
                     <div class="flex items-center gap-x-4">
                         <div class="w-9 h-9 bg-[#34A853] text-white rounded-2xl flex items-center justify-center font-bold text-sm">05</div>
                         <div>
@@ -539,7 +356,6 @@
                                 <li>• CCAI Insights and analytics</li>
                                 <li>• Speech-to-Text &amp; Text-to-Speech</li>
                                 <li>• Conversational Phone Gateway</li>
-                                <li>• Live agent handoff strategies</li>
                             </ul>
                         </div>
                         <div>
@@ -548,7 +364,6 @@
                                 <span class="px-3 py-1 text-xs bg-[#34A853]/10 text-[#34A853] rounded-2xl">CCAI Platform</span>
                                 <span class="px-3 py-1 text-xs bg-[#34A853]/10 text-[#34A853] rounded-2xl">Agent Assist</span>
                                 <span class="px-3 py-1 text-xs bg-[#34A853]/10 text-[#34A853] rounded-2xl">Speech-to-Text</span>
-                                <span class="px-3 py-1 text-xs bg-[#34A853]/10 text-[#34A853] rounded-2xl">Text-to-Speech</span>
                             </div>
                             
                             <div class="font-semibold text-sm mb-3 text-gray-500">RECOMMENDED RESOURCES</div>
@@ -560,10 +375,10 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Phase 6 -->
             <div class="phase-card border border-gray-200 rounded-3xl mb-4 overflow-hidden accordion-item">
-                <div onclick="toggleAccordion(this)" class="accordion-header flex items-center justify-between px-8 py-6 cursor-pointer bg-white">
+                <div onclick="toggleAccordion(this)" class="flex items-center justify-between px-8 py-6 cursor-pointer bg-white">
                     <div class="flex items-center gap-x-4">
                         <div class="w-9 h-9 bg-[#34A853] text-white rounded-2xl flex items-center justify-center font-bold text-sm">06</div>
                         <div>
@@ -582,7 +397,6 @@
                                 <li>• CI/CD for conversational agents</li>
                                 <li>• Testing frameworks and evaluations</li>
                                 <li>• Google Cloud Professional certifications</li>
-                                <li>• Production monitoring and logging</li>
                             </ul>
                         </div>
                         <div>
@@ -591,7 +405,6 @@
                                 <span class="px-3 py-1 text-xs bg-[#34A853]/10 text-[#34A853] rounded-2xl">Cloud Build</span>
                                 <span class="px-3 py-1 text-xs bg-[#34A853]/10 text-[#34A853] rounded-2xl">Cloud Monitoring</span>
                                 <span class="px-3 py-1 text-xs bg-[#34A853]/10 text-[#34A853] rounded-2xl">Cloud Logging</span>
-                                <span class="px-3 py-1 text-xs bg-[#34A853]/10 text-[#34A853] rounded-2xl">Vertex AI</span>
                             </div>
                             
                             <div class="font-semibold text-sm mb-3 text-gray-500">RECOMMENDED RESOURCES</div>
@@ -607,63 +420,87 @@
         </div>
     </section>
 
-    <!-- Resources -->
-    <section id="resources" class="bg-gray-50 border-y border-gray-200 py-16">
-        <div class="max-w-screen-2xl mx-auto px-8">
-            <div class="flex justify-between items-center mb-8">
-                <div>
-                    <h3 class="font-semibold text-3xl tracking-tight">Official Google Learning Resources</h3>
+    <!-- ==================== VIDEOS SECTION ==================== -->
+    <section id="videos" class="section max-w-screen-2xl mx-auto px-8 py-16">
+        <div class="max-w-4xl mx-auto text-center mb-10">
+            <div class="text-[#4285F4] text-xs font-semibold tracking-[3px]">VIDEO LEARNING LIBRARY</div>
+            <h2 class="section-header tracking-[-1.5px] mt-2">YouTube Playlist</h2>
+            <p class="text-gray-600 mt-3">Official Google CCAI &amp; Dialogflow CX tutorials</p>
+        </div>
+        
+        <div class="max-w-5xl mx-auto">
+            <!-- Playlist Embed -->
+            <div class="bg-white border border-gray-200 rounded-3xl p-2 shadow-sm">
+                <div class="aspect-video w-full rounded-2xl overflow-hidden">
+                    <iframe 
+                        width="100%" 
+                        height="100%" 
+                        src="https://www.youtube.com/embed/videoseries?list=PLOAciEalMV3FKLDoRyprBMrO-OhI29GyF" 
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
                 </div>
-                <a href="https://github.com/Yash-Kavaiya/Google-CCAI-Developer-Roadmap/blob/main/Complete-Resource-Guide.md" target="_blank" class="text-sm text-[#4285F4] flex items-center gap-x-2 hover:underline">
-                    View Complete Guide <i class="fa-solid fa-external-link-alt ml-1 text-xs"></i>
+            </div>
+            
+            <div class="flex justify-center mt-6">
+                <a href="https://www.youtube.com/playlist?list=PLOAciEalMV3FKLDoRyprBMrO-OhI29GyF" target="_blank"
+                   class="inline-flex items-center gap-x-3 px-8 py-3.5 rounded-3xl bg-red-600 text-white font-semibold hover:bg-red-700 transition-all">
+                    <i class="fa-brands fa-youtube text-xl"></i>
+                    <span>Open Full Playlist on YouTube</span>
                 </a>
             </div>
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div class="resource-card bg-white border border-gray-200 rounded-3xl p-6">
-                    <div class="font-semibold">Virtual Agent Development in Dialogflow CX</div>
-                    <div class="text-xs mt-1 text-emerald-600">Advanced • 3–4 weeks</div>
-                    <div class="text-xs text-gray-500 mt-4">Core course for building production-grade agents.</div>
-                </div>
-                
-                <div class="resource-card bg-white border border-gray-200 rounded-3xl p-6">
-                    <div class="font-semibold">Build a Retail Virtual Agent (Codelab)</div>
-                    <div class="text-xs mt-1 text-emerald-600">Hands-on • 4–6 hours</div>
-                    <div class="text-xs text-gray-500 mt-4">End-to-end agent with flows, webhooks &amp; test cases.</div>
-                    <a href="https://codelabs.developers.google.com/codelabs/dialogflow-cx-retail-agent" target="_blank" class="text-[#4285F4] text-xs mt-4 inline-block">Start Codelab →</a>
-                </div>
-                
-                <div class="resource-card bg-white border border-gray-200 rounded-3xl p-6">
-                    <div class="font-semibold">CX Agent Studio Learning Path</div>
-                    <div class="text-xs mt-1 text-emerald-600">Partner Skills</div>
-                    <div class="text-xs text-gray-500 mt-4">Multi-agent systems, tools, evaluations, CCaaS integrations.</div>
-                </div>
-                
-                <div class="resource-card bg-white border border-gray-200 rounded-3xl p-6">
-                    <div class="font-semibold">Generative Playbooks</div>
-                    <div class="text-xs mt-1 text-emerald-600">Advanced • 1h 15m</div>
-                    <div class="text-xs text-gray-500 mt-4">Instruction-based agents and hybrid patterns.</div>
-                </div>
-                
-                <div class="resource-card bg-white border border-gray-200 rounded-3xl p-6">
-                    <div class="font-semibold">Contact Center AI: Conversational Design</div>
-                    <div class="text-xs mt-1 text-emerald-600">Introductory • 90 mins</div>
-                    <div class="text-xs text-gray-500 mt-4">Foundational design principles for customer conversations.</div>
-                </div>
-                
-                <div class="resource-card bg-white border border-gray-200 rounded-3xl p-6">
-                    <div class="font-semibold">Advanced Webhook Concepts</div>
-                    <div class="text-xs mt-1 text-emerald-600">Advanced • 45 mins</div>
-                    <div class="text-xs text-gray-500 mt-4">Production webhook patterns and error handling.</div>
-                </div>
+            <div class="text-center mt-8 text-sm text-gray-500">
+                This playlist covers Dialogflow CX, CCAI Platform, Agent Assist, and advanced conversational AI topics.
             </div>
         </div>
     </section>
 
-    <!-- Interview Prep -->
-    <section id="interview" class="max-w-screen-2xl mx-auto px-8 py-16">
+    <!-- ==================== RESOURCES SECTION ==================== -->
+    <section id="resources" class="section max-w-screen-2xl mx-auto px-8 py-16">
+        <div class="max-w-4xl mx-auto text-center mb-10">
+            <h2 class="section-header tracking-[-1.5px]">Official Google Learning Resources</h2>
+        </div>
+        
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-6xl mx-auto">
+            <div class="resource-card bg-white border border-gray-200 rounded-3xl p-6">
+                <div class="font-semibold">Virtual Agent Development in Dialogflow CX</div>
+                <div class="text-xs mt-1 text-emerald-600">Advanced • 3–4 weeks</div>
+            </div>
+            
+            <div class="resource-card bg-white border border-gray-200 rounded-3xl p-6">
+                <div class="font-semibold">Build a Retail Virtual Agent (Codelab)</div>
+                <div class="text-xs mt-1 text-emerald-600">Hands-on • 4–6 hours</div>
+                <a href="https://codelabs.developers.google.com/codelabs/dialogflow-cx-retail-agent" target="_blank" class="text-[#4285F4] text-xs mt-3 inline-block">Start Codelab →</a>
+            </div>
+            
+            <div class="resource-card bg-white border border-gray-200 rounded-3xl p-6">
+                <div class="font-semibold">CX Agent Studio Learning Path</div>
+                <div class="text-xs mt-1 text-emerald-600">Partner Skills</div>
+            </div>
+            
+            <div class="resource-card bg-white border border-gray-200 rounded-3xl p-6">
+                <div class="font-semibold">Generative Playbooks</div>
+                <div class="text-xs mt-1 text-emerald-600">Advanced • 1h 15m</div>
+            </div>
+            
+            <div class="resource-card bg-white border border-gray-200 rounded-3xl p-6">
+                <div class="font-semibold">Contact Center AI: Conversational Design</div>
+                <div class="text-xs mt-1 text-emerald-600">Introductory • 90 mins</div>
+            </div>
+            
+            <div class="resource-card bg-white border border-gray-200 rounded-3xl p-6">
+                <div class="font-semibold">Advanced Webhook Concepts</div>
+                <div class="text-xs mt-1 text-emerald-600">Advanced • 45 mins</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== INTERVIEW SECTION ==================== -->
+    <section id="interview" class="section max-w-screen-2xl mx-auto px-8 py-16">
         <div class="max-w-2xl mx-auto text-center mb-10">
-            <h3 class="font-semibold text-3xl tracking-tight">Interview Preparation</h3>
+            <h2 class="section-header tracking-[-1.5px]">Interview Preparation</h2>
             <p class="mt-2 text-gray-600">28 curated questions across three experience levels</p>
         </div>
         
@@ -701,36 +538,25 @@
                 </div>
             </div>
         </div>
-        
-        <div class="text-center mt-10">
-            <a href="https://github.com/Yash-Kavaiya/Google-CCAI-Developer-Roadmap/blob/main/Complete-Resource-Guide.md#6-interview-questions--all-levels" target="_blank"
-               class="inline-flex items-center gap-x-2 px-7 py-3 text-sm border border-gray-200 rounded-3xl hover:bg-gray-50">
-                View all 28 questions &amp; answers
-            </a>
-        </div>
     </section>
-
-    <!-- Personal / Footer -->
-    <div class="max-w-screen-2xl mx-auto px-8 pb-12">
-        <div class="bg-white border border-gray-200 rounded-3xl p-10 text-center">
-            <div class="max-w-sm mx-auto">
-                <div class="text-xs tracking-[2px] text-emerald-600">CREATED BY</div>
-                <div class="text-4xl font-semibold mt-2">@genai_guru</div>
-                <p class="text-sm text-gray-600 mt-2">Yash Kavaiya • Google CCAI Educator</p>
-                
-                <div class="mt-7 flex justify-center gap-x-3">
-                    <a href="https://www.linkedin.com/posts/genai-guru_google-ccai-roadmap-activity-7327347123211972608-7zTN" target="_blank" class="px-6 py-2.5 text-sm rounded-2xl border border-gray-200 hover:bg-gray-50">LinkedIn Post</a>
-                    <a href="https://github.com/Yash-Kavaiya/Google-CCAI-Developer-Roadmap" target="_blank" class="px-6 py-2.5 text-sm rounded-2xl border border-gray-200 hover:bg-gray-50">GitHub Repo</a>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <footer class="border-t border-gray-200 py-8 text-center text-xs text-gray-500">
         Made for the Google Cloud community • Follow <span class="font-medium text-gray-900">@genai_guru</span>
     </footer>
 
     <script>
+        function showSection(section) {
+            // Hide all sections
+            document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
+            
+            // Show selected section
+            document.getElementById(section).classList.add('active');
+            
+            // Update active tab
+            document.querySelectorAll('.tab-button').forEach(el => el.classList.remove('active-tab'));
+            document.getElementById('tab-' + section).classList.add('active-tab');
+        }
+        
         function toggleAccordion(element) {
             const item = element.parentElement;
             const content = item.querySelector('.accordion-content');
@@ -741,7 +567,6 @@
                 content.style.maxHeight = '0';
                 icon.style.transform = 'rotate(0deg)';
             } else {
-                // Close all other accordions
                 document.querySelectorAll('.accordion-item').forEach(el => {
                     el.classList.remove('accordion-open');
                     const c = el.querySelector('.accordion-content');
@@ -775,35 +600,9 @@
             const icon = document.getElementById('theme-icon');
             icon.classList.add('fa-moon');
             
-            // Smooth scroll
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    const target = document.querySelector(this.getAttribute('href'));
-                    if (target) {
-                        e.preventDefault();
-                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                    }
-                });
-            });
-            
-            // Active nav
-            const sections = document.querySelectorAll('section[id]');
-            const navLinks = document.querySelectorAll('nav a[href^="#"]');
-            
-            window.addEventListener('scroll', () => {
-                let current = '';
-                sections.forEach(section => {
-                    const sectionTop = section.getBoundingClientRect().top;
-                    if (sectionTop <= 180) current = section.getAttribute('id');
-                });
-                
-                navLinks.forEach(link => {
-                    link.classList.remove('nav-active');
-                    if (link.getAttribute('href') === `#${current}`) {
-                        link.classList.add('nav-active');
-                    }
-                });
-            });
+            // Show roadmap by default
+            document.getElementById('roadmap').classList.add('active');
+            document.getElementById('tab-roadmap').classList.add('active-tab');
         }
         
         window.onload = init;
