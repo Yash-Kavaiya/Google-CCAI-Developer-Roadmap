@@ -7,52 +7,43 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap');
-        
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Google+Sans:wght@400;500;700&amp;display=swap');
+
         :root {
-            --google-blue: #4285F4;
-            --google-green: #34A853;
-            --google-yellow: #FBBC05;
-            --google-red: #EA4335;
-        }
-        
-        body {
-            font-family: 'Inter', system_ui, sans-serif;
-        }
-        
-        .font-display {
-            font-family: 'Space Grotesk', 'Inter', sans-serif;
-            font-weight: 600;
+            --g-blue: #4285F4;
+            --g-green: #34A853;
+            --g-yellow: #FBBC05;
+            --g-red: #EA4335;
         }
 
-        .hero-bg {
-            background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%);
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+        }
+
+        .google-sans {
+            font-family: 'Google Sans', 'Inter', system-ui, sans-serif;
+            font-weight: 500;
         }
 
         .section-header {
-            font-size: 2.25rem;
-            line-height: 2.5rem;
+            font-size: 2.5rem;
+            line-height: 1.1;
             font-weight: 700;
-            letter-spacing: -0.025em;
+            letter-spacing: -0.04em;
         }
 
-        .roadmap-timeline::before {
-            content: '';
-            position: absolute;
-            left: 31px;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(to bottom, #4285F4, #34A853);
+        .google-bar {
+            height: 4px;
+            background: linear-gradient(to right, #4285F4, #34A853, #FBBC05, #EA4335);
         }
 
         .phase-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
         }
         
         .phase-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            transform: translateY(-6px);
+            box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
         }
 
         .google-gradient {
@@ -64,6 +55,7 @@
         .nav-active {
             color: #4285F4;
             font-weight: 600;
+            border-bottom: 2px solid #4285F4;
         }
 
         .resource-card {
@@ -71,657 +63,469 @@
         }
         
         .resource-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+            transform: translateY(-4px);
         }
 
-        .evolution-step {
+        .evolution-card {
             position: relative;
-        }
-        
-        .evolution-step::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            right: -20px;
-            width: 40px;
-            height: 3px;
-            background: #64748b;
-            z-index: 0;
-        }
-        
-        .evolution-step:last-child::after {
-            display: none;
+            transition: all 0.3s ease;
         }
 
-        .metric {
+        .metric-number {
             font-variant-numeric: tabular-nums;
+            font-feature-settings: "tnum";
         }
 
-        .glass {
-            background: rgba(255,255,255,0.05);
-            backdrop-filter: blur(12px);
-        }
+        .g-blue { color: #4285F4; }
+        .g-green { color: #34A853; }
+        .g-yellow { color: #FBBC05; }
+        .g-red { color: #EA4335; }
 
-        .skill-pill {
-            background: rgba(66, 133, 244, 0.1);
-            color: #4285F4;
-            font-size: 0.75rem;
-            padding: 0.125rem 0.5rem;
-            border-radius: 9999px;
+        .timeline-line {
+            background: linear-gradient(to bottom, #4285F4, #34A853, #FBBC05);
         }
     </style>
 </head>
-<body class="bg-slate-950 text-slate-200">
+<body class="bg-[#0B0F17] text-slate-200">
+    
+    <!-- Top Google-style accent bar -->
+    <div class="google-bar w-full"></div>
+
     <!-- Navigation -->
-    <nav class="bg-slate-900/95 border-b border-slate-800 sticky top-0 z-50">
-        <div class="max-w-screen-xl mx-auto px-6">
+    <nav class="bg-[#0B0F17]/95 border-b border-slate-800 sticky top-0 z-50">
+        <div class="max-w-screen-2xl mx-auto px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex items-center gap-x-3">
-                    <div class="flex items-center gap-x-2">
-                        <div class="w-9 h-9 bg-gradient-to-br from-blue-500 to-emerald-500 rounded-xl flex items-center justify-center">
-                            <i class="fa-solid fa-headset text-white text-xl"></i>
+                    <div class="flex items-center gap-x-3">
+                        <div class="w-10 h-10 rounded-2xl bg-white flex items-center justify-center">
+                            <span class="text-[#0B0F17] font-bold text-3xl tracking-tighter">G</span>
                         </div>
                         <div>
-                            <span class="font-display text-2xl font-semibold tracking-tight">CCAI</span>
-                            <span class="text-xs text-slate-500 font-mono tracking-[2px]">DEV</span>
+                            <span class="font-semibold text-2xl tracking-tight">CCAI</span>
+                            <span class="text-xs align-super text-slate-500 ml-0.5">Developer</span>
                         </div>
-                    </div>
-                    <div class="hidden md:block px-3 py-1 text-xs rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                        2026 Edition
                     </div>
                 </div>
                 
-                <div class="hidden md:flex items-center gap-x-8 text-sm">
-                    <a href="#overview" class="hover:text-white transition-colors">Overview</a>
-                    <a href="#evolution" class="hover:text-white transition-colors">Evolution</a>
-                    <a href="#roadmap" class="hover:text-white transition-colors">Roadmap</a>
-                    <a href="#resources" class="hover:text-white transition-colors">Resources</a>
-                    <a href="#interview" class="hover:text-white transition-colors">Interview Prep</a>
+                <div class="hidden md:flex items-center gap-x-9 text-sm font-medium">
+                    <a href="#overview" class="hover:text-white transition-colors px-1">Overview</a>
+                    <a href="#evolution" class="hover:text-white transition-colors px-1">Evolution</a>
+                    <a href="#roadmap" class="hover:text-white transition-colors px-1">Roadmap</a>
+                    <a href="#resources" class="hover:text-white transition-colors px-1">Resources</a>
+                    <a href="#interview" class="hover:text-white transition-colors px-1">Interview Prep</a>
                 </div>
                 
                 <div class="flex items-center gap-x-3">
                     <a href="https://github.com/Yash-Kavaiya/Google-CCAI-Developer-Roadmap" target="_blank" 
-                       class="flex items-center gap-x-2 px-4 py-2 text-sm rounded-xl bg-slate-800 hover:bg-slate-700 transition-colors border border-slate-700">
-                        <i class="fa-brands fa-github"></i>
-                        <span class="hidden sm:inline">Repo</span>
+                       class="flex items-center gap-x-2 px-5 py-2 text-sm font-medium rounded-3xl border border-slate-700 hover:bg-slate-800 transition-all">
+                        <i class="fa-brands fa-github mr-1.5"></i>
+                        <span>GitHub</span>
                     </a>
                     <a href="https://www.linkedin.com/posts/genai-guru_google-ccai-roadmap-activity-7327347123211972608-7zTN" target="_blank"
-                       class="flex items-center gap-x-2 px-4 py-2 text-sm rounded-xl bg-blue-600 hover:bg-blue-700 transition-colors">
-                        <i class="fa-brands fa-linkedin"></i>
-                        <span class="hidden sm:inline">LinkedIn</span>
+                       class="flex items-center gap-x-2 px-5 py-2 text-sm font-medium rounded-3xl bg-[#4285F4] hover:bg-[#3367D6] transition-all">
+                        <i class="fa-brands fa-linkedin mr-1.5"></i>
+                        <span>LinkedIn</span>
                     </a>
                 </div>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <header class="hero-bg pt-16 pb-20 border-b border-slate-800">
-        <div class="max-w-screen-xl mx-auto px-6">
-            <div class="max-w-3xl">
-                <div class="inline-flex items-center gap-x-2 px-3 py-1 rounded-full bg-slate-800 border border-slate-700 mb-6">
-                    <div class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></div>
-                    <span class="text-sm text-emerald-400 font-medium">Updated January 2026 • Includes CX Agent Studio</span>
+    <!-- Hero -->
+    <header class="pt-16 pb-20 border-b border-slate-800 bg-[#0B0F17]">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="max-w-4xl">
+                <div class="flex items-center gap-x-3 mb-6">
+                    <div class="inline-flex items-center px-4 py-1 rounded-full bg-white/5 border border-white/10 text-xs font-medium tracking-widest">
+                        <span class="text-emerald-400">●</span> 
+                        <span class="ml-2">2026 EDITION • UPDATED WITH CX AGENT STUDIO</span>
+                    </div>
                 </div>
                 
-                <h1 class="text-6xl md:text-7xl font-display font-bold tracking-tighter leading-none mb-4">
+                <h1 class="text-[72px] leading-[1.05] font-semibold tracking-[-3.5px] mb-4">
                     Google CCAI<br>
                     <span class="google-gradient">Developer Roadmap</span>
                 </h1>
                 
-                <p class="text-xl text-slate-400 max-w-lg mb-8">
-                    Master Contact Center AI from Dialogflow CX fundamentals to production-grade 
-                    multi-agent systems with CX Agent Studio and ADK.
+                <p class="max-w-lg text-xl text-slate-400 mb-10">
+                    Master Contact Center AI from Dialogflow CX fundamentals to production 
+                    multi-agent systems powered by Gemini and ADK.
                 </p>
                 
-                <div class="flex flex-wrap items-center gap-4">
+                <div class="flex items-center gap-x-4">
                     <a href="#roadmap" 
-                       class="inline-flex items-center justify-center gap-x-2 px-8 py-4 rounded-2xl bg-white text-slate-950 font-semibold text-sm hover:bg-slate-100 transition-all active:scale-[0.985]">
-                        <span>Start Learning Path</span>
+                       class="inline-flex items-center justify-center gap-x-3 px-8 py-[17px] rounded-3xl bg-white text-[#0B0F17] font-semibold text-[15px] hover:bg-slate-100 active:scale-[0.985] transition-all">
+                        Start the Roadmap
                         <i class="fa-solid fa-arrow-right"></i>
                     </a>
                     
                     <a href="https://github.com/Yash-Kavaiya/Google-CCAI-Developer-Roadmap/raw/main/Google%20CCAI%20Roadmap.pdf" target="_blank"
-                       class="inline-flex items-center justify-center gap-x-2 px-6 py-4 rounded-2xl border border-slate-700 hover:bg-slate-800 transition-all text-sm font-medium">
+                       class="inline-flex items-center justify-center gap-x-3 px-7 py-[17px] rounded-3xl border border-slate-700 hover:bg-white/5 text-[15px] font-medium transition-all">
                         <i class="fa-solid fa-file-pdf"></i>
                         <span>Download PDF</span>
                     </a>
                 </div>
                 
-                <div class="mt-8 flex items-center gap-x-6 text-sm">
-                    <div class="flex -space-x-2">
-                        <div class="w-7 h-7 bg-slate-700 rounded-full border border-slate-800 ring-1 ring-slate-950"></div>
-                        <div class="w-7 h-7 bg-slate-700 rounded-full border border-slate-800 ring-1 ring-slate-950"></div>
-                        <div class="w-7 h-7 bg-slate-700 rounded-full border border-slate-800 ring-1 ring-slate-950"></div>
-                    </div>
-                    <div class="text-slate-500">
-                        Used by <span class="text-emerald-400 font-medium">1,200+</span> developers
-                    </div>
+                <div class="mt-8 text-sm text-slate-500 flex items-center gap-x-2">
+                    Created by <span class="text-white font-medium">@genai_guru</span> • 
+                    Used by <span class="text-emerald-400 font-semibold">1,200+</span> developers
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Quick Stats -->
-    <div class="max-w-screen-xl mx-auto px-6 -mt-8 relative z-10">
+    <!-- Quick Metrics -->
+    <div class="max-w-screen-2xl mx-auto px-8 -mt-5 relative z-10">
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div class="glass border border-slate-700 rounded-3xl p-6">
-                <div class="text-4xl font-semibold tracking-tighter">32</div>
-                <div class="text-xs uppercase tracking-[1px] text-slate-500 mt-1">Learning Modules</div>
+            <div class="bg-[#11151F] border border-slate-700 rounded-3xl p-6">
+                <div class="text-5xl font-semibold tracking-tighter metric-number">32</div>
+                <div class="text-xs text-slate-400 mt-1 tracking-widest">LEARNING MODULES</div>
             </div>
-            <div class="glass border border-slate-700 rounded-3xl p-6">
-                <div class="text-4xl font-semibold tracking-tighter">28</div>
-                <div class="text-xs uppercase tracking-[1px] text-slate-500 mt-1">Interview Questions</div>
+            <div class="bg-[#11151F] border border-slate-700 rounded-3xl p-6">
+                <div class="text-5xl font-semibold tracking-tighter metric-number">28</div>
+                <div class="text-xs text-slate-400 mt-1 tracking-widest">INTERVIEW QUESTIONS</div>
             </div>
-            <div class="glass border border-slate-700 rounded-3xl p-6">
-                <div class="text-4xl font-semibold tracking-tighter">15</div>
-                <div class="text-xs uppercase tracking-[1px] text-slate-500 mt-1">Official Courses</div>
+            <div class="bg-[#11151F] border border-slate-700 rounded-3xl p-6">
+                <div class="text-5xl font-semibold tracking-tighter metric-number">15</div>
+                <div class="text-xs text-slate-400 mt-1 tracking-widest">OFFICIAL COURSES</div>
             </div>
-            <div class="glass border border-slate-700 rounded-3xl p-6">
-                <div class="text-4xl font-semibold tracking-tighter">3</div>
-                <div class="text-xs uppercase tracking-[1px] text-slate-500 mt-1">Platform Generations</div>
+            <div class="bg-[#11151F] border border-slate-700 rounded-3xl p-6">
+                <div class="text-5xl font-semibold tracking-tighter metric-number">3</div>
+                <div class="text-xs text-slate-400 mt-1 tracking-widest">PLATFORM GENERATIONS</div>
             </div>
         </div>
     </div>
 
     <!-- Overview -->
-    <section id="overview" class="max-w-screen-xl mx-auto px-6 pt-20 pb-12">
-        <div class="grid md:grid-cols-12 gap-x-12 gap-y-8 items-center">
+    <section id="overview" class="max-w-screen-2xl mx-auto px-8 pt-20 pb-16">
+        <div class="grid md:grid-cols-12 gap-x-16 gap-y-10 items-center">
             <div class="md:col-span-7">
-                <div class="uppercase text-xs tracking-[3px] text-blue-400 font-medium mb-3">WHAT IS CCAI?</div>
-                <h2 class="section-header tracking-tighter">Contact Center AI<br>Platform</h2>
-                <p class="mt-4 text-lg text-slate-400">
-                    Google's full-stack Contact Center as a Service (CCaaS) built on Google Cloud. 
-                    Combines intelligent virtual agents (Dialogflow CX / CX Agent Studio), 
-                    real-time Agent Assist, and Conversational Insights for enterprise customer service.
+                <div class="uppercase tracking-[3px] text-xs font-semibold text-[#4285F4] mb-3">WHAT IS GOOGLE CCAI?</div>
+                <h2 class="section-header tracking-[-1.5px]">Contact Center AI<br>Platform</h2>
+                <p class="mt-5 text-lg text-slate-400 max-w-[42ch]">
+                    Google's full-stack Contact Center as a Service (CCaaS) solution. 
+                    Combines intelligent virtual agents, real-time Agent Assist, and deep conversational analytics.
                 </p>
-                
-                <div class="mt-8 grid grid-cols-2 gap-4 text-sm">
-                    <div class="flex gap-3">
-                        <i class="fa-solid fa-check text-emerald-400 mt-1"></i>
-                        <div>
-                            <div class="font-medium">Omnichannel Routing</div>
-                            <div class="text-slate-500 text-xs">Voice, chat, email, social</div>
-                        </div>
-                    </div>
-                    <div class="flex gap-3">
-                        <i class="fa-solid fa-check text-emerald-400 mt-1"></i>
-                        <div>
-                            <div class="font-medium">AI Virtual Agents</div>
-                            <div class="text-slate-500 text-xs">State machine + Generative</div>
-                        </div>
-                    </div>
-                </div>
             </div>
             
-            <div class="md:col-span-5 bg-slate-900 border border-slate-700 rounded-3xl p-8">
-                <div class="text-sm text-slate-400 mb-4">Core Components</div>
-                <div class="space-y-4">
-                    <div class="flex justify-between items-center">
-                        <div class="flex items-center gap-x-3">
-                            <div class="w-8 h-8 bg-blue-500/10 flex items-center justify-center rounded-xl"><i class="fa-solid fa-robot text-blue-400"></i></div>
-                            <span>Dialogflow CX / Conversational Agents</span>
-                        </div>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <div class="flex items-center gap-x-3">
-                            <div class="w-8 h-8 bg-emerald-500/10 flex items-center justify-center rounded-xl"><i class="fa-solid fa-headset text-emerald-400"></i></div>
-                            <span>Agent Assist + GenAI</span>
-                        </div>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <div class="flex items-center gap-x-3">
-                            <div class="w-8 h-8 bg-yellow-500/10 flex items-center justify-center rounded-xl"><i class="fa-solid fa-chart-line text-yellow-400"></i></div>
-                            <span>Conversational Insights</span>
-                        </div>
-                    </div>
-                    <div class="flex justify-between items-center">
-                        <div class="flex items-center gap-x-3">
-                            <div class="w-8 h-8 bg-red-500/10 flex items-center justify-center rounded-xl"><i class="fa-solid fa-phone text-red-400"></i></div>
-                            <span>CCAI Platform (CCaaS)</span>
-                        </div>
+            <div class="md:col-span-5">
+                <div class="bg-[#11151F] border border-slate-700 rounded-3xl p-8">
+                    <div class="text-xs tracking-widest text-slate-400 mb-5">CORE COMPONENTS</div>
+                    <div class="space-y-[17px]">
+                        <div class="flex items-center gap-x-4"><span class="w-2.5 h-2.5 rounded-full bg-[#4285F4]"></span> <span class="font-medium">Dialogflow CX / Conversational Agents</span></div>
+                        <div class="flex items-center gap-x-4"><span class="w-2.5 h-2.5 rounded-full bg-[#34A853]"></span> <span class="font-medium">Agent Assist + GenAI</span></div>
+                        <div class="flex items-center gap-x-4"><span class="w-2.5 h-2.5 rounded-full bg-[#FBBC05]"></span> <span class="font-medium">Conversational Insights</span></div>
+                        <div class="flex items-center gap-x-4"><span class="w-2.5 h-2.5 rounded-full bg-[#EA4335]"></span> <span class="font-medium">CCAI Platform (CCaaS)</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Evolution: Dialogflow CX → Playbooks → CX Agent Studio -->
-    <section id="evolution" class="bg-slate-900 border-y border-slate-800 py-16">
-        <div class="max-w-screen-xl mx-auto px-6">
-            <div class="text-center mb-10">
-                <div class="inline px-4 py-1.5 text-xs font-medium tracking-widest bg-gradient-to-r from-blue-500/10 to-emerald-500/10 text-emerald-400 border border-emerald-500/20 rounded-2xl">PLATFORM EVOLUTION</div>
-                <h2 class="section-header tracking-tighter mt-3">From State Machines to<br>Multi-Agent Intelligence</h2>
-                <p class="max-w-md mx-auto mt-3 text-slate-400">The progression every CCAI developer must understand</p>
+    <!-- Evolution Section -->
+    <section id="evolution" class="bg-[#11151F] border-y border-slate-800 py-16">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <div class="text-center mb-12">
+                <div class="inline-block px-5 py-1.5 text-xs font-semibold tracking-[2px] bg-white/5 border border-white/10 rounded-2xl mb-4">PLATFORM EVOLUTION</div>
+                <h2 class="section-header tracking-[-1.5px]">Dialogflow CX → Playbooks → CX Agent Studio</h2>
+                <p class="text-slate-400 mt-3 max-w-md mx-auto">The three generations every CCAI developer must master</p>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-                <!-- Step 1: Dialogflow CX -->
-                <div class="evolution-step bg-slate-950 border border-slate-700 rounded-3xl p-7">
-                    <div class="flex items-center justify-between mb-6">
+            <div class="grid md:grid-cols-3 gap-6 max-w-[1100px] mx-auto">
+                
+                <!-- Gen 1 -->
+                <div class="evolution-card bg-[#0B0F17] border border-slate-700 rounded-3xl p-8">
+                    <div class="flex justify-between items-start mb-8">
                         <div>
-                            <div class="text-xs uppercase tracking-[1.5px] text-blue-400">GENERATION 1</div>
-                            <div class="font-semibold text-2xl">Dialogflow CX</div>
+                            <div class="text-[#4285F4] text-xs font-semibold tracking-widest">GENERATION 1 • 2020</div>
+                            <div class="text-3xl font-semibold mt-1">Dialogflow CX</div>
                         </div>
-                        <div class="px-3 py-1 text-xs bg-blue-500/10 text-blue-400 rounded-xl font-mono">2020–2024</div>
+                        <div class="px-4 py-1 text-xs font-mono rounded-2xl bg-[#4285F4]/10 text-[#4285F4]">State Machine</div>
                     </div>
                     
-                    <div class="space-y-4 text-sm">
-                        <div class="flex gap-2">
-                            <span class="skill-pill">State Machine</span>
-                            <span class="skill-pill">Flows + Pages</span>
-                        </div>
-                        <ul class="space-y-2 text-slate-400 text-[13px]">
-                            <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs mt-1"></i> Deterministic control</li>
-                            <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs mt-1"></i> High predictability</li>
-                            <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs mt-1"></i> Webhooks + Parameters</li>
-                            <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs mt-1"></i> Best for regulated workflows</li>
-                        </ul>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-check text-[#34A853]"></i> <span>Flows + Pages + Routes</span></div>
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-check text-[#34A853]"></i> <span>Deterministic control</span></div>
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-check text-[#34A853]"></i> <span>Webhooks &amp; Parameters</span></div>
                     </div>
-                    <div class="mt-6 pt-6 border-t border-slate-800 text-xs text-slate-500">
-                        Console: conversational-agents.cloud.google.com
-                    </div>
+                    <div class="mt-8 pt-6 border-t border-slate-700 text-xs text-slate-400">Best for regulated, high-precision workflows</div>
                 </div>
                 
-                <!-- Step 2: Playbooks -->
-                <div class="evolution-step bg-slate-950 border border-slate-700 rounded-3xl p-7">
-                    <div class="flex items-center justify-between mb-6">
+                <!-- Gen 2 -->
+                <div class="evolution-card bg-[#0B0F17] border border-slate-700 rounded-3xl p-8">
+                    <div class="flex justify-between items-start mb-8">
                         <div>
-                            <div class="text-xs uppercase tracking-[1.5px] text-yellow-400">GENERATION 2</div>
-                            <div class="font-semibold text-2xl">Generative Playbooks</div>
+                            <div class="text-[#FBBC05] text-xs font-semibold tracking-widest">GENERATION 2 • 2024</div>
+                            <div class="text-3xl font-semibold mt-1">Generative Playbooks</div>
                         </div>
-                        <div class="px-3 py-1 text-xs bg-yellow-500/10 text-yellow-400 rounded-xl font-mono">2024–2025</div>
+                        <div class="px-4 py-1 text-xs font-mono rounded-2xl bg-[#FBBC05]/10 text-[#FBBC05]">LLM-Powered</div>
                     </div>
                     
-                    <div class="space-y-4 text-sm">
-                        <div class="flex gap-2">
-                            <span class="skill-pill">LLM-Powered</span>
-                            <span class="skill-pill">Natural Language</span>
-                        </div>
-                        <ul class="space-y-2 text-slate-400 text-[13px]">
-                            <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs mt-1"></i> Instruction-based agents</li>
-                            <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs mt-1"></i> Flexible conversations</li>
-                            <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs mt-1"></i> RAG + Data Stores</li>
-                            <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs mt-1"></i> Ideal for FAQ &amp; open-ended</li>
-                        </ul>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-check text-[#34A853]"></i> <span>Natural language instructions</span></div>
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-check text-[#34A853]"></i> <span>RAG + Data Stores</span></div>
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-check text-[#34A853]"></i> <span>Hybrid agents supported</span></div>
                     </div>
-                    <div class="mt-6 pt-6 border-t border-slate-800 text-xs text-slate-500">
-                        Hybrid agents = Best of both worlds
-                    </div>
+                    <div class="mt-8 pt-6 border-t border-slate-700 text-xs text-slate-400">Ideal for flexible FAQ and open conversations</div>
                 </div>
                 
-                <!-- Step 3: CX Agent Studio -->
-                <div class="bg-slate-950 border border-emerald-500/30 rounded-3xl p-7 relative overflow-hidden">
-                    <div class="absolute top-4 right-4 px-3 py-1 text-xs bg-emerald-500 text-emerald-950 font-semibold rounded-2xl">LATEST</div>
+                <!-- Gen 3 -->
+                <div class="evolution-card bg-[#0B0F17] border border-[#34A853]/40 rounded-3xl p-8 relative">
+                    <div class="absolute top-6 right-6 px-4 py-1 text-xs font-bold bg-[#34A853] text-[#0B0F17] rounded-2xl">LATEST</div>
                     
-                    <div class="flex items-center justify-between mb-6">
+                    <div class="flex justify-between items-start mb-8">
                         <div>
-                            <div class="text-xs uppercase tracking-[1.5px] text-emerald-400">GENERATION 3</div>
-                            <div class="font-semibold text-2xl">CX Agent Studio</div>
+                            <div class="text-[#34A853] text-xs font-semibold tracking-widest">GENERATION 3 • 2025</div>
+                            <div class="text-3xl font-semibold mt-1">CX Agent Studio</div>
                         </div>
-                        <div class="px-3 py-1 text-xs bg-emerald-500/10 text-emerald-400 rounded-xl font-mono">2025+</div>
+                        <div class="px-4 py-1 text-xs font-mono rounded-2xl bg-[#34A853]/10 text-[#34A853]">ADK + Gemini</div>
                     </div>
                     
-                    <div class="space-y-4 text-sm">
-                        <div class="flex gap-2">
-                            <span class="skill-pill bg-emerald-500/10 text-emerald-400">ADK + Gemini</span>
-                            <span class="skill-pill bg-emerald-500/10 text-emerald-400">Multi-Agent</span>
-                        </div>
-                        <ul class="space-y-2 text-slate-400 text-[13px]">
-                            <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs mt-1"></i> AI-assisted building</li>
-                            <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs mt-1"></i> Root + Sub-agents</li>
-                            <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs mt-1"></i> Python tools in UI</li>
-                            <li class="flex gap-2"><i class="fa-solid fa-check text-emerald-400 text-xs mt-1"></i> Evaluations &amp; tracing</li>
-                        </ul>
+                    <div class="space-y-3 text-sm">
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-check text-[#34A853]"></i> <span>Multi-agent architecture</span></div>
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-check text-[#34A853]"></i> <span>Python tools in UI</span></div>
+                        <div class="flex items-center gap-3"><i class="fa-solid fa-check text-[#34A853]"></i> <span>Evaluations &amp; tracing</span></div>
                     </div>
-                    
-                    <div class="mt-6 pt-6 border-t border-emerald-500/20 text-xs text-emerald-400 font-medium">
-                        ces.cloud.google.com • Powered by Agent Development Kit
-                    </div>
+                    <div class="mt-8 pt-6 border-t border-[#34A853]/30 text-xs text-emerald-400 font-medium">ces.cloud.google.com • Powered by Agent Development Kit</div>
                 </div>
-            </div>
-            
-            <div class="max-w-3xl mx-auto mt-8 text-center text-sm text-slate-400">
-                <strong class="text-white">Recommendation:</strong> Start with Dialogflow CX for strong fundamentals, 
-                then adopt Playbooks for flexibility, and finally CX Agent Studio for enterprise-scale multi-agent systems.
             </div>
         </div>
     </section>
 
-    <!-- Learning Roadmap Timeline -->
-    <section id="roadmap" class="max-w-screen-xl mx-auto px-6 py-20">
+    <!-- Roadmap Timeline -->
+    <section id="roadmap" class="max-w-screen-2xl mx-auto px-8 py-20">
         <div class="flex justify-between items-end mb-10">
             <div>
-                <div class="text-blue-400 text-xs tracking-[3px] font-medium">STRUCTURED PATH</div>
-                <h2 class="section-header tracking-tighter">6-Phase Learning Roadmap</h2>
+                <div class="text-[#4285F4] text-xs font-semibold tracking-[3px]">STRUCTURED LEARNING PATH</div>
+                <h2 class="section-header tracking-[-1.5px] mt-1">6-Phase Roadmap</h2>
             </div>
-            <div class="hidden md:block text-right text-sm text-slate-500">
-                Estimated: <span class="font-medium text-white">4–6 months</span> to job-ready
-            </div>
+            <div class="text-sm text-slate-400 hidden md:block">4–6 months to job-ready</div>
         </div>
         
-        <div class="roadmap-timeline relative pl-16 space-y-8">
+        <div class="relative pl-16 max-w-[980px]">
+            <!-- Vertical line -->
+            <div class="absolute left-[31px] top-3 bottom-3 w-[3px] timeline-line rounded"></div>
             
             <!-- Phase 1 -->
-            <div class="phase-card bg-slate-900 border border-slate-700 rounded-3xl p-8 relative">
-                <div class="absolute -left-[15px] top-8 w-8 h-8 bg-blue-500 rounded-2xl flex items-center justify-center text-xs font-mono font-bold ring-4 ring-slate-950">01</div>
-                <div class="grid md:grid-cols-12 gap-y-4 items-center">
-                    <div class="md:col-span-4">
-                        <div class="uppercase text-blue-400 text-xs tracking-widest">FOUNDATION</div>
-                        <div class="font-semibold text-2xl tracking-tight">Python + Cloud Basics</div>
-                        <div class="text-xs text-slate-500 mt-1">2–3 weeks</div>
+            <div class="phase-card mb-8 bg-[#11151F] border border-slate-700 rounded-3xl p-8 relative">
+                <div class="absolute -left-[13px] top-9 w-7 h-7 bg-[#4285F4] rounded-2xl flex items-center justify-center text-xs font-bold ring-4 ring-[#0B0F17]">01</div>
+                <div class="grid md:grid-cols-12 gap-y-2 items-center">
+                    <div class="md:col-span-5">
+                        <div class="font-semibold text-2xl">Python + Cloud Foundations</div>
+                        <div class="text-xs text-[#4285F4] mt-1">2–3 weeks</div>
                     </div>
-                    <div class="md:col-span-8 text-sm text-slate-300">
-                        Master Python, basic GCP (IAM, Cloud Functions, Storage), and conversational design principles. 
-                        Complete Google Cloud Skills Boost “Introduction to Google Cloud” and “Python for Data Science”.
-                    </div>
+                    <div class="md:col-span-7 text-sm text-slate-300">Python, GCP basics (IAM, Cloud Functions, Storage), conversational design principles.</div>
                 </div>
             </div>
             
             <!-- Phase 2 -->
-            <div class="phase-card bg-slate-900 border border-slate-700 rounded-3xl p-8 relative">
-                <div class="absolute -left-[15px] top-8 w-8 h-8 bg-blue-500 rounded-2xl flex items-center justify-center text-xs font-mono font-bold ring-4 ring-slate-950">02</div>
-                <div class="grid md:grid-cols-12 gap-y-4 items-center">
-                    <div class="md:col-span-4">
-                        <div class="uppercase text-blue-400 text-xs tracking-widest">CORE</div>
-                        <div class="font-semibold text-2xl tracking-tight">Dialogflow CX Fundamentals</div>
-                        <div class="text-xs text-slate-500 mt-1">4–5 weeks</div>
+            <div class="phase-card mb-8 bg-[#11151F] border border-slate-700 rounded-3xl p-8 relative">
+                <div class="absolute -left-[13px] top-9 w-7 h-7 bg-[#4285F4] rounded-2xl flex items-center justify-center text-xs font-bold ring-4 ring-[#0B0F17]">02</div>
+                <div class="grid md:grid-cols-12 gap-y-2 items-center">
+                    <div class="md:col-span-5">
+                        <div class="font-semibold text-2xl">Dialogflow CX Fundamentals</div>
+                        <div class="text-xs text-[#4285F4] mt-1">4–5 weeks</div>
                     </div>
-                    <div class="md:col-span-8 text-sm text-slate-300">
-                        Build your first agents using Flows, Pages, Intents, Entities, and Routes. 
-                        Master parameters (session, intent, form) and webhook integration. 
-                        Complete: “Building a Virtual Agent with Dialogflow CX” + Retail Codelab.
-                    </div>
+                    <div class="md:col-span-7 text-sm text-slate-300">Flows, Pages, Intents, Entities, Routes, parameters, and webhook integration.</div>
                 </div>
             </div>
             
             <!-- Phase 3 -->
-            <div class="phase-card bg-slate-900 border border-slate-700 rounded-3xl p-8 relative">
-                <div class="absolute -left-[15px] top-8 w-8 h-8 bg-yellow-500 rounded-2xl flex items-center justify-center text-xs font-mono font-bold ring-4 ring-slate-950">03</div>
-                <div class="grid md:grid-cols-12 gap-y-4 items-center">
-                    <div class="md:col-span-4">
-                        <div class="uppercase text-yellow-400 text-xs tracking-widest">ADVANCED</div>
-                        <div class="font-semibold text-2xl tracking-tight">Playbooks &amp; Generative AI</div>
-                        <div class="text-xs text-slate-500 mt-1">3 weeks</div>
+            <div class="phase-card mb-8 bg-[#11151F] border border-slate-700 rounded-3xl p-8 relative">
+                <div class="absolute -left-[13px] top-9 w-7 h-7 bg-[#FBBC05] rounded-2xl flex items-center justify-center text-xs font-bold ring-4 ring-[#0B0F17]">03</div>
+                <div class="grid md:grid-cols-12 gap-y-2 items-center">
+                    <div class="md:col-span-5">
+                        <div class="font-semibold text-2xl">Generative Playbooks</div>
+                        <div class="text-xs text-[#FBBC05] mt-1">3 weeks</div>
                     </div>
-                    <div class="md:col-span-8 text-sm text-slate-300">
-                        Transition to Generative Playbooks. Learn instruction-based agents, RAG with Data Stores, 
-                        Generators, and hybrid agents (Flows + Playbooks). 
-                        Course: “Generative Playbooks” + “Incorporating Generative Features”.
-                    </div>
+                    <div class="md:col-span-7 text-sm text-slate-300">Instruction-based agents, RAG, Data Stores, and hybrid agent patterns.</div>
                 </div>
             </div>
             
             <!-- Phase 4 -->
-            <div class="phase-card bg-slate-900 border border-emerald-500/30 rounded-3xl p-8 relative">
-                <div class="absolute -left-[15px] top-8 w-8 h-8 bg-emerald-500 rounded-2xl flex items-center justify-center text-xs font-mono font-bold ring-4 ring-slate-950">04</div>
-                <div class="grid md:grid-cols-12 gap-y-4 items-center">
-                    <div class="md:col-span-4">
-                        <div class="uppercase text-emerald-400 text-xs tracking-widest">NEXT-GEN</div>
-                        <div class="font-semibold text-2xl tracking-tight">CX Agent Studio + ADK</div>
-                        <div class="text-xs text-slate-500 mt-1">3–4 weeks</div>
+            <div class="phase-card mb-8 bg-[#11151F] border border-[#34A853]/40 rounded-3xl p-8 relative">
+                <div class="absolute -left-[13px] top-9 w-7 h-7 bg-[#34A853] rounded-2xl flex items-center justify-center text-xs font-bold ring-4 ring-[#0B0F17]">04</div>
+                <div class="grid md:grid-cols-12 gap-y-2 items-center">
+                    <div class="md:col-span-5">
+                        <div class="font-semibold text-2xl">CX Agent Studio + ADK</div>
+                        <div class="text-xs text-[#34A853] mt-1">3–4 weeks</div>
                     </div>
-                    <div class="md:col-span-8 text-sm text-slate-300">
-                        Build multi-agent systems with CX Agent Studio. Master root + sub-agents, Python tools, 
-                        evaluations, callbacks, and telephony integration. 
-                        Focus: ADK patterns, multi-agent delegation, and production monitoring.
-                    </div>
+                    <div class="md:col-span-7 text-sm text-slate-300">Multi-agent systems, Python tools, evaluations, callbacks, and telephony.</div>
                 </div>
             </div>
             
             <!-- Phase 5 -->
-            <div class="phase-card bg-slate-900 border border-slate-700 rounded-3xl p-8 relative">
-                <div class="absolute -left-[15px] top-8 w-8 h-8 bg-emerald-500 rounded-2xl flex items-center justify-center text-xs font-mono font-bold ring-4 ring-slate-950">05</div>
-                <div class="grid md:grid-cols-12 gap-y-4 items-center">
-                    <div class="md:col-span-4">
-                        <div class="uppercase text-emerald-400 text-xs tracking-widest">FULL STACK</div>
-                        <div class="font-semibold text-2xl tracking-tight">CCAI Platform &amp; Integrations</div>
-                        <div class="text-xs text-slate-500 mt-1">2 weeks</div>
+            <div class="phase-card mb-8 bg-[#11151F] border border-slate-700 rounded-3xl p-8 relative">
+                <div class="absolute -left-[13px] top-9 w-7 h-7 bg-[#34A853] rounded-2xl flex items-center justify-center text-xs font-bold ring-4 ring-[#0B0F17]">05</div>
+                <div class="grid md:grid-cols-12 gap-y-2 items-center">
+                    <div class="md:col-span-5">
+                        <div class="font-semibold text-2xl">CCAI Platform &amp; Integrations</div>
+                        <div class="text-xs text-[#34A853] mt-1">2 weeks</div>
                     </div>
-                    <div class="md:col-span-8 text-sm text-slate-300">
-                        Agent Assist, CCAI Insights, Speech-to-Text / Text-to-Speech, 
-                        Conversational Phone Gateway, and full CCaaS deployment. 
-                        Learn handoff strategies and real-time guidance.
-                    </div>
+                    <div class="md:col-span-7 text-sm text-slate-300">Agent Assist, Insights, Speech-to-Text, Phone Gateway, and handoff strategies.</div>
                 </div>
             </div>
             
             <!-- Phase 6 -->
-            <div class="phase-card bg-slate-900 border border-slate-700 rounded-3xl p-8 relative">
-                <div class="absolute -left-[15px] top-8 w-8 h-8 bg-emerald-500 rounded-2xl flex items-center justify-center text-xs font-mono font-bold ring-4 ring-slate-950">06</div>
-                <div class="grid md:grid-cols-12 gap-y-4 items-center">
-                    <div class="md:col-span-4">
-                        <div class="uppercase text-emerald-400 text-xs tracking-widest">MASTERY</div>
-                        <div class="font-semibold text-2xl tracking-tight">Production &amp; Certification</div>
-                        <div class="text-xs text-slate-500 mt-1">Ongoing</div>
+            <div class="phase-card bg-[#11151F] border border-slate-700 rounded-3xl p-8 relative">
+                <div class="absolute -left-[13px] top-9 w-7 h-7 bg-[#34A853] rounded-2xl flex items-center justify-center text-xs font-bold ring-4 ring-[#0B0F17]">06</div>
+                <div class="grid md:grid-cols-12 gap-y-2 items-center">
+                    <div class="md:col-span-5">
+                        <div class="font-semibold text-2xl">Production &amp; Certification</div>
+                        <div class="text-xs text-[#34A853] mt-1">Ongoing</div>
                     </div>
-                    <div class="md:col-span-8 text-sm text-slate-300">
-                        Build end-to-end projects, implement testing frameworks, CI/CD for agents, 
-                        and prepare for Google Professional Cloud Developer or CCAI-related certifications. 
-                        Contribute to open source and publish case studies.
-                    </div>
+                    <div class="md:col-span-7 text-sm text-slate-300">End-to-end projects, CI/CD, testing frameworks, and Google Cloud certifications.</div>
                 </div>
             </div>
-            
         </div>
     </section>
 
-    <!-- Resources Section -->
-    <section id="resources" class="bg-slate-900 py-16 border-y border-slate-800">
-        <div class="max-w-screen-xl mx-auto px-6">
+    <!-- Resources -->
+    <section id="resources" class="bg-[#11151F] border-y border-slate-800 py-16">
+        <div class="max-w-screen-2xl mx-auto px-8">
             <div class="flex justify-between items-center mb-8">
                 <div>
-                    <h3 class="font-semibold text-3xl tracking-tight">Official Learning Resources</h3>
-                    <p class="text-slate-400 mt-1">Curated from Google Cloud Skills Boost &amp; Codelabs</p>
+                    <h3 class="font-semibold text-3xl tracking-tight">Official Google Learning Resources</h3>
                 </div>
-                <a href="https://github.com/Yash-Kavaiya/Google-CCAI-Developer-Roadmap/blob/main/Complete-Resource-Guide.md" target="_blank" 
-                   class="text-sm flex items-center gap-x-2 text-blue-400 hover:text-blue-300">
-                    View Full Guide <i class="fa-solid fa-external-link-alt ml-1"></i>
+                <a href="https://github.com/Yash-Kavaiya/Google-CCAI-Developer-Roadmap/blob/main/Complete-Resource-Guide.md" target="_blank" class="text-sm text-[#4285F4] flex items-center gap-x-2 hover:underline">
+                    View Complete Guide <i class="fa-solid fa-external-link-alt ml-1 text-xs"></i>
                 </a>
             </div>
             
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <!-- Resource cards -->
-                <div class="resource-card bg-slate-950 border border-slate-700 rounded-2xl p-5">
-                    <div class="flex justify-between">
-                        <div>
-                            <div class="font-medium">Virtual Agent Development in Dialogflow CX</div>
-                            <div class="text-xs text-emerald-400 mt-1">Advanced • 3–4 weeks</div>
-                        </div>
-                        <i class="fa-solid fa-graduation-cap text-xl text-blue-400"></i>
-                    </div>
-                    <div class="mt-4 text-xs text-slate-400">Core course for software developers building production agents.</div>
+                <div class="resource-card bg-[#0B0F17] border border-slate-700 rounded-3xl p-6">
+                    <div class="font-semibold">Virtual Agent Development in Dialogflow CX</div>
+                    <div class="text-xs mt-1 text-emerald-400">Advanced • 3–4 weeks</div>
+                    <div class="text-xs text-slate-400 mt-4">Core course for building production-grade agents.</div>
                 </div>
                 
-                <div class="resource-card bg-slate-950 border border-slate-700 rounded-2xl p-5">
-                    <div class="flex justify-between">
-                        <div>
-                            <div class="font-medium">Build a Retail Virtual Agent (Codelab)</div>
-                            <div class="text-xs text-emerald-400 mt-1">Hands-on • 4–6 hours</div>
-                        </div>
-                        <i class="fa-solid fa-flask text-xl text-emerald-400"></i>
-                    </div>
-                    <div class="mt-4 text-xs text-slate-400">Complete end-to-end agent with flows, webhooks, test cases.</div>
-                    <a href="https://codelabs.developers.google.com/codelabs/dialogflow-cx-retail-agent" target="_blank" class="text-xs text-blue-400 mt-3 inline-block">Start Codelab →</a>
+                <div class="resource-card bg-[#0B0F17] border border-slate-700 rounded-3xl p-6">
+                    <div class="font-semibold">Build a Retail Virtual Agent (Codelab)</div>
+                    <div class="text-xs mt-1 text-emerald-400">Hands-on • 4–6 hours</div>
+                    <div class="text-xs text-slate-400 mt-4">End-to-end agent with flows, webhooks &amp; test cases.</div>
+                    <a href="https://codelabs.developers.google.com/codelabs/dialogflow-cx-retail-agent" target="_blank" class="text-[#4285F4] text-xs mt-4 inline-block">Start Codelab →</a>
                 </div>
                 
-                <div class="resource-card bg-slate-950 border border-slate-700 rounded-2xl p-5">
-                    <div class="flex justify-between">
-                        <div>
-                            <div class="font-medium">CX Agent Studio Learning Path</div>
-                            <div class="text-xs text-emerald-400 mt-1">Partner Skills • Self-paced</div>
-                        </div>
-                        <i class="fa-solid fa-robot text-xl text-emerald-400"></i>
-                    </div>
-                    <div class="mt-4 text-xs text-slate-400">Multi-agent systems, tools, evaluations, CCaaS integrations.</div>
+                <div class="resource-card bg-[#0B0F17] border border-slate-700 rounded-3xl p-6">
+                    <div class="font-semibold">CX Agent Studio Learning Path</div>
+                    <div class="text-xs mt-1 text-emerald-400">Partner Skills</div>
+                    <div class="text-xs text-slate-400 mt-4">Multi-agent systems, tools, evaluations, CCaaS integrations.</div>
                 </div>
                 
-                <div class="resource-card bg-slate-950 border border-slate-700 rounded-2xl p-5">
-                    <div class="flex justify-between">
-                        <div>
-                            <div class="font-medium">Generative Playbooks</div>
-                            <div class="text-xs text-emerald-400 mt-1">Advanced • 1h 15m</div>
-                        </div>
-                        <i class="fa-solid fa-magic text-xl text-yellow-400"></i>
-                    </div>
-                    <div class="mt-4 text-xs text-slate-400">Learn instruction-based agents and hybrid patterns.</div>
+                <div class="resource-card bg-[#0B0F17] border border-slate-700 rounded-3xl p-6">
+                    <div class="font-semibold">Generative Playbooks</div>
+                    <div class="text-xs mt-1 text-emerald-400">Advanced • 1h 15m</div>
+                    <div class="text-xs text-slate-400 mt-4">Instruction-based agents and hybrid patterns.</div>
                 </div>
                 
-                <div class="resource-card bg-slate-950 border border-slate-700 rounded-2xl p-5">
-                    <div class="flex justify-between">
-                        <div>
-                            <div class="font-medium">Contact Center AI: Conversational Design</div>
-                            <div class="text-xs text-emerald-400 mt-1">Intro • 90 mins</div>
-                        </div>
-                        <i class="fa-solid fa-comments text-xl text-blue-400"></i>
-                    </div>
-                    <div class="mt-4 text-xs text-slate-400">Foundational design principles for effective customer conversations.</div>
+                <div class="resource-card bg-[#0B0F17] border border-slate-700 rounded-3xl p-6">
+                    <div class="font-semibold">Contact Center AI: Conversational Design</div>
+                    <div class="text-xs mt-1 text-emerald-400">Introductory • 90 mins</div>
+                    <div class="text-xs text-slate-400 mt-4">Foundational design principles for customer conversations.</div>
                 </div>
                 
-                <div class="resource-card bg-slate-950 border border-slate-700 rounded-2xl p-5">
-                    <div class="flex justify-between">
-                        <div>
-                            <div class="font-medium">Advanced Webhook Concepts</div>
-                            <div class="text-xs text-emerald-400 mt-1">Advanced • 45 mins</div>
-                        </div>
-                        <i class="fa-solid fa-plug text-xl text-red-400"></i>
-                    </div>
-                    <div class="mt-4 text-xs text-slate-400">Production webhook patterns, error handling, Cloud Functions Gen2.</div>
+                <div class="resource-card bg-[#0B0F17] border border-slate-700 rounded-3xl p-6">
+                    <div class="font-semibold">Advanced Webhook Concepts</div>
+                    <div class="text-xs mt-1 text-emerald-400">Advanced • 45 mins</div>
+                    <div class="text-xs text-slate-400 mt-4">Production webhook patterns and error handling.</div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Interview Prep -->
-    <section id="interview" class="max-w-screen-xl mx-auto px-6 py-16">
+    <section id="interview" class="max-w-screen-2xl mx-auto px-8 py-16">
         <div class="max-w-2xl mx-auto text-center mb-10">
             <h3 class="font-semibold text-3xl tracking-tight">Interview Preparation</h3>
-            <p class="mt-2 text-slate-400">28 curated questions across 3 experience tiers</p>
+            <p class="mt-2 text-slate-400">28 curated questions across three experience levels</p>
         </div>
         
-        <div class="grid md:grid-cols-3 gap-6">
-            <div class="bg-slate-900 border border-slate-700 rounded-3xl p-7">
-                <div class="text-xs font-medium text-blue-400 tracking-widest">TIER 1 • 0–1 YEAR</div>
-                <div class="mt-2 font-semibold">Fundamentals</div>
-                <div class="mt-4 text-sm text-slate-300 space-y-3">
-                    <div>• Dialogflow CX vs ES differences</div>
-                    <div>• Flows, Pages, Routes architecture</div>
+        <div class="grid md:grid-cols-3 gap-6 max-w-[1100px] mx-auto">
+            <div class="bg-[#11151F] border border-slate-700 rounded-3xl p-8">
+                <div class="text-xs font-semibold text-[#4285F4] tracking-widest">TIER 1 • 0–1 YEAR</div>
+                <div class="mt-2 text-xl font-semibold">Fundamentals</div>
+                <div class="mt-6 text-sm space-y-2 text-slate-300">
+                    <div>• Dialogflow CX vs ES</div>
+                    <div>• Flows, Pages &amp; Routes</div>
                     <div>• Three parameter types</div>
-                    <div>• Webhook fundamentals</div>
+                    <div>• Webhook basics</div>
                 </div>
-                <div class="mt-6 text-xs text-emerald-400">8 questions covered in full guide</div>
             </div>
             
-            <div class="bg-slate-900 border border-slate-700 rounded-3xl p-7">
-                <div class="text-xs font-medium text-yellow-400 tracking-widest">TIER 2 • 1–3 YEARS</div>
-                <div class="mt-2 font-semibold">Intermediate</div>
-                <div class="mt-4 text-sm text-slate-300 space-y-3">
-                    <div>• State machine model deep dive</div>
-                    <div>• Generative Playbooks vs Flows</div>
+            <div class="bg-[#11151F] border border-slate-700 rounded-3xl p-8">
+                <div class="text-xs font-semibold text-[#FBBC05] tracking-widest">TIER 2 • 1–3 YEARS</div>
+                <div class="mt-2 text-xl font-semibold">Intermediate</div>
+                <div class="mt-6 text-sm space-y-2 text-slate-300">
+                    <div>• State machine deep dive</div>
+                    <div>• Playbooks vs Flows</div>
                     <div>• Hybrid agent design</div>
-                    <div>• Parameter passing &amp; Generators</div>
+                    <div>• Generators &amp; RAG</div>
                 </div>
-                <div class="mt-6 text-xs text-emerald-400">10 questions covered in full guide</div>
             </div>
             
-            <div class="bg-slate-900 border border-emerald-500/30 rounded-3xl p-7">
-                <div class="text-xs font-medium text-emerald-400 tracking-widest">TIER 3 • 3+ YEARS</div>
-                <div class="mt-2 font-semibold">Advanced / Senior</div>
-                <div class="mt-4 text-sm text-slate-300 space-y-3">
-                    <div>• Multi-lingual banking bot design</div>
-                    <div>• Error handling &amp; fallback strategies</div>
-                    <div>• NLU optimization &amp; overlapping intents</div>
-                    <div>• Multi-agent ADK architecture</div>
+            <div class="bg-[#11151F] border border-[#34A853]/30 rounded-3xl p-8">
+                <div class="text-xs font-semibold text-[#34A853] tracking-widest">TIER 3 • 3+ YEARS</div>
+                <div class="mt-2 text-xl font-semibold">Advanced</div>
+                <div class="mt-6 text-sm space-y-2 text-slate-300">
+                    <div>• Multi-agent system design</div>
+                    <div>• Error handling strategies</div>
+                    <div>• NLU optimization</div>
+                    <div>• ADK + Gemini patterns</div>
                 </div>
-                <div class="mt-6 text-xs text-emerald-400">10 questions + system design</div>
             </div>
         </div>
         
-        <div class="text-center mt-8">
+        <div class="text-center mt-10">
             <a href="https://github.com/Yash-Kavaiya/Google-CCAI-Developer-Roadmap/blob/main/Complete-Resource-Guide.md#6-interview-questions--all-levels" target="_blank"
-               class="inline-flex items-center text-sm px-6 py-3 rounded-2xl border border-slate-700 hover:bg-slate-800">
-                View All 28 Interview Questions &amp; Answers
-                <i class="fa-solid fa-arrow-right ml-2"></i>
+               class="inline-flex items-center gap-x-2 px-7 py-3 text-sm border border-slate-700 rounded-3xl hover:bg-white/5">
+                View all 28 questions &amp; answers
             </a>
         </div>
     </section>
 
-    <!-- Personal Resources -->
-    <section class="max-w-screen-xl mx-auto px-6 pb-16">
-        <div class="bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-700 rounded-3xl p-10 text-center">
-            <div class="max-w-md mx-auto">
-                <div class="text-emerald-400 text-xs tracking-[2px]">CREATED BY</div>
-                <div class="text-3xl font-semibold tracking-tight mt-2">@genai_guru</div>
-                <p class="mt-3 text-slate-400">Yash Kavaiya • Google CCAI &amp; Conversational AI Educator</p>
+    <!-- Personal / Footer -->
+    <div class="max-w-screen-2xl mx-auto px-8 pb-12">
+        <div class="bg-[#11151F] border border-slate-700 rounded-3xl p-10 text-center">
+            <div class="max-w-sm mx-auto">
+                <div class="text-xs tracking-[2px] text-emerald-400">CREATED BY</div>
+                <div class="text-4xl font-semibold mt-2">@genai_guru</div>
+                <p class="text-sm text-slate-400 mt-2">Yash Kavaiya • Google CCAI Educator</p>
                 
-                <div class="flex justify-center gap-x-4 mt-6">
-                    <a href="https://www.linkedin.com/posts/genai-guru_google-ccai-roadmap-activity-7327347123211972608-7zTN" target="_blank"
-                       class="px-5 py-2.5 text-sm flex items-center gap-x-2 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10">
-                        <i class="fa-brands fa-linkedin"></i>
-                        <span>LinkedIn Post</span>
-                    </a>
-                    <a href="https://github.com/Yash-Kavaiya/Google-CCAI-Developer-Roadmap" target="_blank"
-                       class="px-5 py-2.5 text-sm flex items-center gap-x-2 rounded-2xl bg-white/5 hover:bg-white/10 border border-white/10">
-                        <i class="fa-brands fa-github"></i>
-                        <span>GitHub Repo</span>
-                    </a>
-                </div>
-                
-                <div class="mt-8 text-xs text-slate-500">
-                    Includes the complete Dialogflow CX → Playbook → CX Agent Studio transition guide,<br>
-                    15+ official courses, codelabs, and production best practices.
+                <div class="mt-7 flex justify-center gap-x-3">
+                    <a href="https://www.linkedin.com/posts/genai-guru_google-ccai-roadmap-activity-7327347123211972608-7zTN" target="_blank" class="px-6 py-2.5 text-sm rounded-2xl border border-white/10 hover:bg-white/5">LinkedIn Post</a>
+                    <a href="https://github.com/Yash-Kavaiya/Google-CCAI-Developer-Roadmap" target="_blank" class="px-6 py-2.5 text-sm rounded-2xl border border-white/10 hover:bg-white/5">GitHub Repo</a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
     <footer class="border-t border-slate-800 py-8 text-center text-xs text-slate-500">
-        <div class="max-w-screen-xl mx-auto px-6">
-            Made with ❤️ for the Google Cloud community • 
-            <a href="https://github.com/Yash-Kavaiya/Google-CCAI-Developer-Roadmap" class="hover:text-slate-300">Star on GitHub</a> • 
-            Follow <span class="font-medium">@genai_guru</span> for daily AI tips
-        </div>
+        Made for the Google Cloud community • Follow <span class="font-medium text-white">@genai_guru</span>
     </footer>
 
     <script>
-        // Tailwind script
-        function initializeTailwind() {
-            document.documentElement.style.setProperty('--accent', '#4285F4');
-        }
-        
-        // Smooth scroll for nav links
-        function setupSmoothScroll() {
+        // Tailwind config
+        function init() {
+            // Smooth scroll
             document.querySelectorAll('a[href^="#"]').forEach(anchor => {
                 anchor.addEventListener('click', function(e) {
                     const target = document.querySelector(this.getAttribute('href'));
                     if (target) {
                         e.preventDefault();
                         target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                        
-                        // Update active nav
-                        document.querySelectorAll('nav a').forEach(a => a.classList.remove('nav-active'));
-                        this.classList.add('nav-active');
                     }
                 });
             });
-        }
-        
-        // Active nav highlighting on scroll
-        function setupActiveNav() {
-            const sections = ['overview', 'evolution', 'roadmap', 'resources', 'interview'];
+            
+            // Active nav
+            const sections = document.querySelectorAll('section[id]');
             const navLinks = document.querySelectorAll('nav a[href^="#"]');
             
             window.addEventListener('scroll', () => {
                 let current = '';
-                sections.forEach(sectionId => {
-                    const section = document.getElementById(sectionId);
-                    if (section) {
-                        const sectionTop = section.getBoundingClientRect().top;
-                        if (sectionTop <= 150) {
-                            current = sectionId;
-                        }
-                    }
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    if (sectionTop <= 180) current = section.getAttribute('id');
                 });
                 
                 navLinks.forEach(link => {
@@ -731,28 +535,6 @@
                     }
                 });
             });
-        }
-        
-        // Keyboard shortcut hint
-        function addKeyboardHint() {
-            document.addEventListener('keydown', function(e) {
-                if (e.key === '/' && document.activeElement.tagName === 'BODY') {
-                    e.preventDefault();
-                    const roadmap = document.getElementById('roadmap');
-                    if (roadmap) roadmap.scrollIntoView({ behavior: 'smooth' });
-                }
-            });
-        }
-        
-        // Initialize everything
-        function init() {
-            initializeTailwind();
-            setupSmoothScroll();
-            setupActiveNav();
-            addKeyboardHint();
-            
-            // Easter egg: console message
-            console.log('%c[CCAI Roadmap] Nice! You found the console. Follow @genai_guru on LinkedIn for more.', 'color:#64748b');
         }
         
         window.onload = init;
